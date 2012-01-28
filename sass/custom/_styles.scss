@@ -1,0 +1,52 @@
+// This File is imported last, and will override other styles in the cascade
+// Add styles here to make changes without digging in too much
+
+a[rel=home], a[rel=next] {
+  background: darken($main-bg, 5);
+  display: inline-block;
+  padding: .4em .8em;
+  margin-right: .5em;
+  text-decoration: none;
+  color: mix($text-color, $text-color-light);
+  @extend .serif;
+  @include transition(background-color .5s);
+  &:hover {
+    background: $link-color-hover;
+    text-shadow: none;
+    color: $main-bg;
+  }
+}
+
+.voting-panel {
+  display: block;
+  margin-bottom: 16px;
+}
+
+dl {
+  margin: 16px;
+}
+
+dt {
+  font-weight: bold;
+  margin-bottom: 6px;
+  font-style: italic;
+  font-size: 110%;
+}
+
+dd {
+  margin-bottom: 16px;
+}
+
+a[href^="http://twitter.com/#!/"] {
+  display: block;
+  padding-left: 28px;
+  padding-bottom: 4px;
+  background-image: url(/images/bird_24_gray.png);
+  background-repeat: no-repeat;
+  text-decoration: none;
+  clear:both;
+}
+
+h2 {
+  clear:both;
+} 
