@@ -37,6 +37,7 @@
   
     <h2>For the things we have to learn before we can do them, we learn by doing them. ~Aristotle</h2>
   
+  <a class="pnp" href="http://msdn.com/practices" title="Microsoft patterns &amp; practices"><span>Microsoft patterns &amp; practices </span></a>
 </hgroup>
 
 </header>
@@ -46,14 +47,25 @@
 </ul>
 <form action="http://bing.com/search" method="get">
   <fieldset role="search">
-    <input type="hidden" name="q" value="site:cqrsjourney.github.com" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
+  <script type="text/javascript">
+$.domReady(function() {
+	$('form').bind( {'submit': function(form) {
+		var query = $('[name=q]').val();
+		$('[name=q]').val( query + ' site:liike.github.com');
+	 }} );
+});
+  </script>
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog">Blog</a></li>
+  <li><a href="/team">Team</a></li>
+  <li><a href="/advisors">Advisory Board</a></li>
+  <li><a href="/workshop">Workshop</a></li>
 </ul>
+
 
 </nav>
   <div id="main">
@@ -84,7 +96,7 @@
 
 <p>In order to provide clarification and to encourage solidarity, members on the board asked the <a href="/team" title="the official team members">project team</a> to provide a terse and focused statement about the project&#8217;s objective. After the meeting concluded, the team summarized the objective as:</p>
 
-<p>Liquid error: undefined method `map&#8217; for #&lt;String:0x2805b88></p>
+<p>Liquid error: undefined method `map&#8217; for #&lt;String:0x289e198></p>
 
 <h2>Deliverables</h2>
 
@@ -196,6 +208,7 @@
         <a href="/blog/2011/10/01/we-liike-mobile-web-dev/">We Liike Mobile Web Dev</a>
       </li>
     
+  <li><a href="/blog/archives">Complete Archives</a></li>
   </ul>
 </section>
 <section>
@@ -275,7 +288,14 @@
 
 
 
-
+<script type="text/javascript">
+  var uvOptions = {};
+  (function() {
+    var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
+    uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/NgMIyZchnB83nME8Ux4LKQ.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
+  })();
+</script>
 
 
 </body>
