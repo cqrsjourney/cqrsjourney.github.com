@@ -1,81 +1,79 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://cqrsjourney.github.com/blog/2011/10/01/we-liike-mobile-web-dev/</loc>
+        <loc>http://liike.github.com/blog/2011/10/01/we-liike-mobile-web-dev/</loc>
         <lastmod>2012-01-27T17:26:25-08:00</lastmod>
     </url>
     <url>
-        <loc>http://cqrsjourney.github.com/blog/2011/10/03/the-doc-repo-is-live/</loc>
+        <loc>http://liike.github.com/blog/2011/10/03/the-doc-repo-is-live/</loc>
         <lastmod>2012-01-27T17:26:25-08:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://cqrsjourney.github.com/blog/2011/10/19/mobile-developent-and-device-detection/
-        </loc>
+        <loc>http://liike.github.com/blog/2011/10/19/mobile-developent-and-device-detection/</loc>
         <lastmod>2012-01-27T17:26:25-08:00</lastmod>
     </url>
     <url>
-        <loc>http://cqrsjourney.github.com/blog/2012/01/27/my-first-post/</loc>
+        <loc>http://liike.github.com/blog/2012/01/27/my-first-post/</loc>
         <lastmod>2012-01-27T17:26:25-08:00</lastmod>
     </url>
     <url>
-        <loc>http://cqrsjourney.github.com/advisors/2011-11-23/</loc>
+        <loc>http://liike.github.com/advisors/2011-11-23/</loc>
         <lastmod>2012-01-27T17:26:25-08:00</lastmod>
     </url>
     <url>
-        <loc>http://cqrsjourney.github.com/advisors/faq/</loc>
+        <loc>http://liike.github.com/advisors/faq/</loc>
         <lastmod>2012-01-27T17:26:25-08:00</lastmod>
     </url>
     <url>
-        <loc>http://cqrsjourney.github.com/advisors/</loc>
+        <loc>http://liike.github.com/advisors/</loc>
         <lastmod>2012-01-27T17:26:25-08:00</lastmod>
     </url>
     <url>
-        <loc>http://cqrsjourney.github.com/advisors/members/</loc>
+        <loc>http://liike.github.com/advisors/members/</loc>
         <lastmod>2012-01-27T17:26:25-08:00</lastmod>
     </url>
     <url>
-        <loc>http://cqrsjourney.github.com/blog/archives/</loc>
+        <loc>http://liike.github.com/blog/archives/</loc>
         <lastmod>2012-01-27T17:26:25-08:00</lastmod>
     </url>
     <url>
-        <loc>http://cqrsjourney.github.com/blog/</loc>
+        <loc>http://liike.github.com/blog/</loc>
         <lastmod>2012-01-27T17:26:25-08:00</lastmod>
     </url>
     <url>
-        <loc>http://cqrsjourney.github.com/</loc>
+        <loc>http://liike.github.com/</loc>
         <lastmod>2012-01-27T17:26:25-08:00</lastmod>
     </url>
     <url>
-        <loc>http://cqrsjourney.github.com/scenarios/exploring-large-data-sets.html</loc>
+        <loc>http://liike.github.com/scenarios/exploring-large-data-sets.html</loc>
         <lastmod>2012-01-27T17:26:25-08:00</lastmod>
     </url>
     <url>
-        <loc>http://cqrsjourney.github.com/scenarios/extending-existing-apps.html</loc>
+        <loc>http://liike.github.com/scenarios/extending-existing-apps.html</loc>
         <lastmod>2012-01-27T17:26:25-08:00</lastmod>
     </url>
     <url>
-        <loc>http://cqrsjourney.github.com/scenarios/greenfield-mobile-first.html</loc>
+        <loc>http://liike.github.com/scenarios/greenfield-mobile-first.html</loc>
         <lastmod>2012-01-27T17:26:25-08:00</lastmod>
     </url>
     <url>
-        <loc>http://cqrsjourney.github.com/scenarios/</loc>
+        <loc>http://liike.github.com/scenarios/</loc>
         <lastmod>2012-01-27T17:26:25-08:00</lastmod>
     </url>
     <url>
-        <loc>http://cqrsjourney.github.com/scenarios/line-of-business.html</loc>
+        <loc>http://liike.github.com/scenarios/line-of-business.html</loc>
         <lastmod>2012-01-27T17:26:25-08:00</lastmod>
     </url>
     <url>
-        <loc>http://cqrsjourney.github.com/scenarios/possibilities.html</loc>
+        <loc>http://liike.github.com/scenarios/possibilities.html</loc>
         <lastmod>2012-01-27T17:26:25-08:00</lastmod>
     </url>
     <url>
-        <loc>http://cqrsjourney.github.com/team/</loc>
+        <loc>http://liike.github.com/team/</loc>
         <lastmod>2012-01-27T17:26:25-08:00</lastmod>
     </url>
     <url>
-        <loc>http://cqrsjourney.github.com/workshop/</loc>
+        <loc>http://liike.github.com/workshop/</loc>
         <lastmod>2012-01-27T17:26:25-08:00</lastmod>
     </url>
 </urlset>
