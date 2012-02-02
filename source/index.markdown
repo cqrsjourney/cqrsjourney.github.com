@@ -5,7 +5,12 @@ comments: true
 sharing: true
 footer: true
 ---
-Project Liike is an effort to produce guidance that helps organizations build mobile web experiences based off of existing web applications. There are countless devices available today and all indications suggest this number is only going to grow, without convergence. The factors to help choose between native apps and web apps are fairly well-known. Those who choose the web face numerous [decisions and challenges](http://liike.uservoice.com) based on their requirements. This project aims to help. 
+
+## TESTING IN PROGRESS
+
+UNDER CONSTRUCTION
+
+DO NOT READ ANYTHING ON THIS SITE
 
 ## Who
 The [Microsoft patterns & practices](http://msdn.microsoft.com/practices) team is a group of engineers (developers, testers, program managers), designers, and technical writers who produce guidance to help the larger community build solutions. We hope to make the mistakes so you don't have to.
