@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title>Project Liike (LEEE-keh)</title>
-  <link href="http://liike.github.com/atom.xml" rel="self"/>
-  <link href="http://liike.github.com/"/>
-  <updated>2012-01-31T10:30:32-08:00</updated>
-  <id>http://liike.github.com/</id>
+  <title>Project &#8220;a CQRS Journey&#8221;</title>
+  <link href="http://cqrsjourney.github.com/atom.xml" rel="self"/>
+  <link href="http://cqrsjourney.github.com/"/>
+  <updated>2012-02-01T17:36:31-08:00</updated>
+  <id>http://cqrsjourney.github.com/</id>
   <author>
     <name>Microsoft patterns &amp; practices</name>
     
-      <email>liike@microsoft.com</email>
+      <email>cqrsdv@live.com</email>
     
   </author>
 
   
   <entry>
     <title>My First Post</title>
-    <link href="http://liike.github.com/blog/2012/01/27/my-first-post/"/>
+    <link href="http://cqrsjourney.github.com/blog/2012/01/27/my-first-post/"/>
     <updated>2012-01-27T16:35:00-08:00</updated>
-    <id>http://liike.github.com/blog/2012/01/27/my-first-post</id>
+    <id>http://cqrsjourney.github.com/blog/2012/01/27/my-first-post</id>
     <content type="html">&lt;h1&gt;header&lt;/h1&gt;
 
 &lt;h2&gt;2nd header&lt;/h2&gt;
 
-&lt;p&gt;&lt;img class=&quot;right&quot; src=&quot;http://liike.github.com/images/posts/tower-babel.jpg&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;right&quot; src=&quot;http://cqrsjourney.github.com/images/posts/tower-babel.jpg&quot;&gt;&lt;/p&gt;
 
-&lt;p&gt;This is a &lt;strong&gt;bold&lt;/strong&gt;. &lt;a href=&quot;http://dev.bennage.com&quot;&gt;This is a link&lt;/a&gt;. A &lt;a href=&quot;http://liike.github.com/blog&quot;&gt;relative link&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This is a &lt;strong&gt;bold&lt;/strong&gt;. &lt;a href=&quot;http://dev.bennage.com&quot;&gt;This is a link&lt;/a&gt;. A &lt;a href=&quot;http://cqrsjourney.github.com/blog&quot;&gt;relative link&lt;/a&gt;.&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;hello&lt;/li&gt;
@@ -49,16 +49,16 @@
   
   <entry>
     <title>Mobile Development: Detecting Devices &amp; Features</title>
-    <link href="http://liike.github.com/blog/2011/10/19/mobile-developent-and-device-detection/"/>
+    <link href="http://cqrsjourney.github.com/blog/2011/10/19/mobile-developent-and-device-detection/"/>
     <updated>2011-10-19T16:01:00-07:00</updated>
-    <id>http://liike.github.com/blog/2011/10/19/mobile-developent-and-device-detection</id>
+    <id>http://cqrsjourney.github.com/blog/2011/10/19/mobile-developent-and-device-detection</id>
     <content type="html">&lt;p&gt;&lt;em&gt;Take this post cum granlis salis. I&amp;#8217;m trying to figure this stuff out and I&amp;#8217;m thinking out loud.&lt;/em&gt;&lt;/p&gt;
 
 &lt;h2&gt;Background&lt;/h2&gt;
 
 &lt;p&gt;Whenever a browser makes a request, it includes a string identifying itself to the server. We commonly refer to this as the &lt;em&gt;user agent string&lt;/em&gt;. This string identifies the browser and the platform and the version and a great deal more such nonsense.&lt;/p&gt;
 
-&lt;p&gt;&lt;img class=&quot;right&quot; src=&quot;http://liike.github.com/images/posts/tower-babel.jpg&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;right&quot; src=&quot;http://cqrsjourney.github.com/images/posts/tower-babel.jpg&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;This sounds great in theory. We should be able to use this data to optimize what&amp;#8217;s being sent to the (mobile) browser. However, there&amp;#8217;s been something of a &lt;a href=&quot;http://webaim.org/blog/user-agent-string-history/&quot; title=&quot;History of the browser user-agent string by Aaron Andersen&quot;&gt;sordid history for user agent strings&lt;/a&gt;. In retrospect, we&amp;#8217;ve realized that &lt;a href=&quot;http://en.wikipedia.org/wiki/User_agent#User_agent_sniffing&quot;&gt;user agent sniffing&lt;/a&gt; is a tool that has often hurt more than it has helped.&lt;/p&gt;
 
@@ -88,9 +88,9 @@
   
   <entry>
     <title>The Doc Repo is Live</title>
-    <link href="http://liike.github.com/blog/2011/10/03/the-doc-repo-is-live/"/>
+    <link href="http://cqrsjourney.github.com/blog/2011/10/03/the-doc-repo-is-live/"/>
     <updated>2011-10-03T13:53:00-07:00</updated>
-    <id>http://liike.github.com/blog/2011/10/03/the-doc-repo-is-live</id>
+    <id>http://cqrsjourney.github.com/blog/2011/10/03/the-doc-repo-is-live</id>
     <content type="html">&lt;p&gt;As we begin our investigation into the specifics of tools, frameworks, and existing guidance, we&amp;#8217;re capturing our learnings on our brand new &lt;a href=&quot;http://github.com/liike/docs&quot;&gt;docs repo&lt;/a&gt;. Over time we&amp;#8217;ll be including small topics and other written content.&lt;/p&gt;
 
 &lt;p&gt;Don is also maintaining a delicious stack called &lt;a href=&quot;http://delicious.com/stacks/view/Cz4m7h&quot;&gt;Mobile Web Dev&lt;/a&gt; to keep track of good articles and links. If you have any choice links we should know about, throw them in the comments below.&lt;/p&gt;
@@ -99,9 +99,9 @@
   
   <entry>
     <title>We Liike Mobile Web Dev</title>
-    <link href="http://liike.github.com/blog/2011/10/01/we-liike-mobile-web-dev/"/>
+    <link href="http://cqrsjourney.github.com/blog/2011/10/01/we-liike-mobile-web-dev/"/>
     <updated>2011-10-01T08:51:00-07:00</updated>
-    <id>http://liike.github.com/blog/2011/10/01/we-liike-mobile-web-dev</id>
+    <id>http://cqrsjourney.github.com/blog/2011/10/01/we-liike-mobile-web-dev</id>
     <content type="html">&lt;p&gt;Over the past month I&amp;#8217;ve had some conversations with some Microsoft customers, product teams, and some field consultants to help us decide if we should invest in producing guidance for building mobile web apps. Everyone agreed this would be useful to customers, useful to Microsoft, and it&amp;#8217;s a space that actually warrants guidance. So it looks like we&amp;#8217;re on!&lt;/p&gt;
 
 &lt;p&gt;The plan is for Chris to be the dev lead with me playing the PM role. Other team members will join us after we define more project specifics. So yesterday Chris and I arrived at what we think would be a reasonable scenario. Try this on for size:&lt;/p&gt;
