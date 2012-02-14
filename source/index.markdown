@@ -24,5 +24,5 @@ The reference implementation will be a conference management system that you wil
  - The guidance should be based on the best thinking available but also the scenarios customers care about
  
 ## How
-We hire experts, developers, testers, and writers to augment our team of full-time employees to build these deliverables. We do so using agile/Scrum team practices that operate on fortnightly sprints. At the end of each sprint we hold calls with a group of advisors to demo the new stuff, discuss decision points, and get feedback on our direction. This feedback is crucial to our success.
+We hire experts, developers, testers, and writers to augment our team of full-time employees to build these deliverables. We do so using agile/Scrum team practices that operate on fortnightly sprints. At the end of each sprint we hold calls with a [group of advisors](/advisors) to demo the new stuff, discuss decision points, and get feedback on our direction. This feedback is crucial to our success.
 
