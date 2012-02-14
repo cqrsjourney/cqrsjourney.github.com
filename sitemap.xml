@@ -1,24 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://cqrsjourney.github.com/blog/2011/10/01/we-liike-mobile-web-dev/</loc>
-        <lastmod>2012-01-27T17:26:25-08:00</lastmod>
-    </url>
-    <url>
-        <loc>http://cqrsjourney.github.com/blog/2011/10/03/the-doc-repo-is-live/</loc>
-        <lastmod>2012-01-27T17:26:25-08:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://cqrsjourney.github.com/blog/2011/10/19/mobile-developent-and-device-detection/
-        </loc>
-        <lastmod>2012-01-27T17:26:25-08:00</lastmod>
-    </url>
-    <url>
-        <loc>http://cqrsjourney.github.com/blog/2012/01/27/my-first-post/</loc>
-        <lastmod>2012-01-27T17:26:25-08:00</lastmod>
-    </url>
-    <url>
         <loc>http://cqrsjourney.github.com/advisors/2011-11-23/</loc>
         <lastmod>2012-01-27T17:26:25-08:00</lastmod>
     </url>
@@ -44,7 +26,7 @@
     </url>
     <url>
         <loc>http://cqrsjourney.github.com/</loc>
-        <lastmod>2012-02-01T17:37:21-08:00</lastmod>
+        <lastmod>2012-02-13T20:48:31-08:00</lastmod>
     </url>
     <url>
         <loc>http://cqrsjourney.github.com/scenarios/exploring-large-data-sets.html</loc>
@@ -72,10 +54,6 @@
     </url>
     <url>
         <loc>http://cqrsjourney.github.com/team/</loc>
-        <lastmod>2012-01-27T17:26:25-08:00</lastmod>
-    </url>
-    <url>
-        <loc>http://cqrsjourney.github.com/workshop/</loc>
         <lastmod>2012-01-27T17:26:25-08:00</lastmod>
     </url>
 </urlset>

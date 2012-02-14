@@ -54,16 +54,15 @@
 $.domReady(function() {
 	$('form').bind( {'submit': function(form) {
 		var query = $('[name=q]').val();
-		$('[name=q]').val( query + ' site:liike.github.com');
+		$('[name=q]').val( query + ' site:cqrsjourney.github.com');
 	 }} );
 });
   </script>
 <ul class="main-navigation">
   <li><a href="/">Home</a></li>
   <li><a href="/blog">Blog</a></li>
-  <li><a href="/team">Team</a></li>
-  <li><a href="/advisors">Advisory Board</a></li>
-  <li><a href="/workshop">Workshop</a></li>
+  <!-- <li><a href="/team">Team</a></li> -->
+  <!-- <li><a href="/advisors">Advisory Board</a></li>  -->
 </ul>
 
 
@@ -144,29 +143,13 @@ $.domReady(function() {
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
     
-      <li class="post">
-        <a href="/blog/2012/01/27/my-first-post/">My First Post</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2011/10/19/mobile-developent-and-device-detection/">Mobile Development: Detecting Devices &amp; Features</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2011/10/03/the-doc-repo-is-live/">The Doc Repo is Live</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2011/10/01/we-liike-mobile-web-dev/">We Liike Mobile Web Dev</a>
-      </li>
-    
   <li><a href="/blog/archives">Complete Archives</a></li>
   </ul>
 </section>
 <section>
 <div id="recentcomments" class="dsq-widget">
 <h1 class="dsq-widget-title">Recent Comments</h1>
-<script type="text/javascript" src="http://liike.disqus.com/recent_comments_widget.js?num_items=5&hide_avatars=1&avatar_size=18&excerpt_length=200"></script>
+<script type="text/javascript" src="http://cqrsjourney.disqus.com/recent_comments_widget.js?num_items=5&hide_avatars=1&avatar_size=18&excerpt_length=200"></script>
 </div>
 </section>
 
@@ -242,11 +225,11 @@ $.domReady(function() {
 
 <script type="text/javascript">
   var uvOptions = {};
-  (function() {
+  /* (function() {
     var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
     uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/NgMIyZchnB83nME8Ux4LKQ.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
-  })();
+  })(); */
 </script>
 
 

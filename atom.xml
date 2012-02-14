@@ -4,7 +4,7 @@
   <title>Project &#8220;a CQRS Journey&#8221;</title>
   <link href="http://cqrsjourney.github.com/atom.xml" rel="self"/>
   <link href="http://cqrsjourney.github.com/"/>
-  <updated>2012-02-01T17:46:37-08:00</updated>
+  <updated>2012-02-13T20:50:00-08:00</updated>
   <id>http://cqrsjourney.github.com/</id>
   <author>
     <name>Microsoft patterns &amp; practices</name>
@@ -13,116 +13,5 @@
     
   </author>
 
-  
-  <entry>
-    <title>My First Post</title>
-    <link href="http://cqrsjourney.github.com/blog/2012/01/27/my-first-post/"/>
-    <updated>2012-01-27T16:35:00-08:00</updated>
-    <id>http://cqrsjourney.github.com/blog/2012/01/27/my-first-post</id>
-    <content type="html">&lt;h1&gt;header&lt;/h1&gt;
-
-&lt;h2&gt;2nd header&lt;/h2&gt;
-
-&lt;p&gt;&lt;img class=&quot;right&quot; src=&quot;http://cqrsjourney.github.com/images/posts/tower-babel.jpg&quot;&gt;&lt;/p&gt;
-
-&lt;p&gt;This is a &lt;strong&gt;bold&lt;/strong&gt;. &lt;a href=&quot;http://dev.bennage.com&quot;&gt;This is a link&lt;/a&gt;. A &lt;a href=&quot;http://cqrsjourney.github.com/blog&quot;&gt;relative link&lt;/a&gt;.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;hello&lt;/li&gt;
-&lt;li&gt;another&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;world
-** second lvel bullet&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;kjhkjh&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;cat&lt;/li&gt;
-&lt;li&gt;dog&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;Here is &lt;em&gt;some text&lt;/em&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;this is code
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;after the code&lt;/p&gt;
-</content>
-  </entry>
-  
-  <entry>
-    <title>Mobile Development: Detecting Devices &amp; Features</title>
-    <link href="http://cqrsjourney.github.com/blog/2011/10/19/mobile-developent-and-device-detection/"/>
-    <updated>2011-10-19T16:01:00-07:00</updated>
-    <id>http://cqrsjourney.github.com/blog/2011/10/19/mobile-developent-and-device-detection</id>
-    <content type="html">&lt;p&gt;&lt;em&gt;Take this post cum granlis salis. I&amp;#8217;m trying to figure this stuff out and I&amp;#8217;m thinking out loud.&lt;/em&gt;&lt;/p&gt;
-
-&lt;h2&gt;Background&lt;/h2&gt;
-
-&lt;p&gt;Whenever a browser makes a request, it includes a string identifying itself to the server. We commonly refer to this as the &lt;em&gt;user agent string&lt;/em&gt;. This string identifies the browser and the platform and the version and a great deal more such nonsense.&lt;/p&gt;
-
-&lt;p&gt;&lt;img class=&quot;right&quot; src=&quot;http://cqrsjourney.github.com/images/posts/tower-babel.jpg&quot;&gt;&lt;/p&gt;
-
-&lt;p&gt;This sounds great in theory. We should be able to use this data to optimize what&amp;#8217;s being sent to the (mobile) browser. However, there&amp;#8217;s been something of a &lt;a href=&quot;http://webaim.org/blog/user-agent-string-history/&quot; title=&quot;History of the browser user-agent string by Aaron Andersen&quot;&gt;sordid history for user agent strings&lt;/a&gt;. In retrospect, we&amp;#8217;ve realized that &lt;a href=&quot;http://en.wikipedia.org/wiki/User_agent#User_agent_sniffing&quot;&gt;user agent sniffing&lt;/a&gt; is a tool that has often hurt more than it has helped.&lt;/p&gt;
-
-&lt;p&gt;We&amp;#8217;ve learned to &lt;em&gt;favor feature detection over browser detection&lt;/em&gt; (or device detection). Take a look at &lt;a href=&quot;http://www.modernizr.com/&quot;&gt;modernizr&lt;/a&gt; and &lt;a href=&quot;http://haz.io/&quot;&gt;haz.io&lt;/a&gt; for more on the that front.  The success of feature detection has also resulted in a shift from server logic to client logic. We detect features on the client but we detect user agent strings on the server, before we send anything to the client.&lt;/p&gt;
-
-&lt;p&gt;How does all this play into the mobile web? One of the key mobile features we are interested in is &lt;em&gt;screen size&lt;/em&gt;. Luckily for us, the W3C has blessed us with &lt;a href=&quot;http://www.w3.org/TR/css3-mediaqueries/&quot;&gt;media queries&lt;/a&gt;. In a nutshell, media queries allow you to conditionally apply CSS based properties of the display device. This has given rise to something known as &lt;a href=&quot;http://www.alistapart.com/articles/responsive-web-design/&quot;&gt;Responsive Web Design&lt;/a&gt;. Responsive Web Design is about having a single set of markup whose layout can &lt;em&gt;respond&lt;/em&gt; to the device&amp;#8217;s display capabilities. Unfortunately, there are a few &lt;a href=&quot;http://www.webdesignshock.com/responsive-design-problems/&quot;&gt;rough edges&lt;/a&gt; with this approach.&lt;/p&gt;
-
-&lt;h2&gt;Moving Backwards…&lt;/h2&gt;
-
-&lt;p&gt;In the mobile world, client-side feature detection has a few drawbacks. It requires extra code to be sent to the browsers and it takes additional processing on the client. It&amp;#8217;s also likely that you&amp;#8217;ll end up sending more than is really needed (or that you&amp;#8217;ll need to make additional requests).&lt;/p&gt;
-
-&lt;p&gt;One solution to this conundrum is to use the open source &amp;#8220;database&amp;#8221; called &lt;a href=&quot;http://wurfl.sourceforge.net/&quot;&gt;WURLF&lt;/a&gt;. You can query WURL with a user agent string and it will return a set of capabilities. I think of it as &lt;em&gt;feature detection&lt;/em&gt; on the server. Though admittedly it&amp;#8217;s a bit misleading to call it that.&lt;/p&gt;
-
-&lt;p&gt;This means your server can ask questions like &amp;#8220;Does this client support HTML5? If no, what do they support?&amp;#8221; before the first response is even sent.&lt;/p&gt;
-
-&lt;p&gt;WURLF has &lt;a href=&quot;http://scientiamobile.com/&quot;&gt;commercial support&lt;/a&gt; and a &lt;a href=&quot;http://wurfl.sourceforge.net/dotNet/&quot;&gt;C# API&lt;/a&gt;. For ASP.NET developers, &lt;a href=&quot;http://51degrees.mobi/&quot;&gt;51Degrees&lt;/a&gt; has an open source project called &lt;a href=&quot;http://51degrees.codeplex.com/&quot;&gt;Foundation&lt;/a&gt; that is built on top of WURL. It uses an HttpModule to automatically query WURL and populate the &lt;a href=&quot;http://msdn.microsoft.com/en-us/library/system.web.httprequest&quot;&gt;Request.Browser&lt;/a&gt;. Setting up WURLF without Foundation takes a little bit more work, but not too much. Both are available on Nuget: &lt;a href=&quot;http://www.nuget.org/List/Packages/WURFL_Official_API&quot;&gt;WURL&lt;/a&gt; and &lt;a href=&quot;http://nuget.org/List/Packages/51Degrees.mobi&quot;&gt;51Degrees&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2&gt;What should you do?&lt;/h2&gt;
-
-&lt;p&gt;I don&amp;#8217;t think that there is a cut and dry answer &lt;em&gt;at the moment&lt;/em&gt;. What you do depends heavily on your target audience. If you are targeting the &lt;a href=&quot;http://gs.statcounter.com/#mobile_browser-na-monthly-201009-201109&quot;&gt;North American market&lt;/a&gt; there&amp;#8217;s a good chance you&amp;#8217;ll be okay with a single set of markup, going with a responsive &lt;a href=&quot;http://www.lukew.com/ff/entry.asp?933&quot;&gt;mobile-first&lt;/a&gt; design. In other words, there would be no need for something like WURLF.&lt;/p&gt;
-
-&lt;p&gt;However, you might need a &lt;em&gt;very broad reach&lt;/em&gt; or you might be targeting a market heavy in &lt;a href=&quot;http://en.wikipedia.org/wiki/Feature_phone&quot;&gt;feature phones&lt;/a&gt; or something else that&amp;#8217;s &lt;a href=&quot;http://gs.statcounter.com/#mobile_browser-sa-monthly-201009-201109&quot;&gt;very different from North America&lt;/a&gt;. In those cases, it is good to understand your options.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Christopher Bennage, cross posted from &lt;a href=&quot;http://dev.bennage.com/blog/2011/10/19/mobile-developent-and-device-detection/&quot;&gt;dev.bennage.com&lt;/a&gt;&lt;/em&gt;.&lt;/p&gt;
-</content>
-  </entry>
-  
-  <entry>
-    <title>The Doc Repo is Live</title>
-    <link href="http://cqrsjourney.github.com/blog/2011/10/03/the-doc-repo-is-live/"/>
-    <updated>2011-10-03T13:53:00-07:00</updated>
-    <id>http://cqrsjourney.github.com/blog/2011/10/03/the-doc-repo-is-live</id>
-    <content type="html">&lt;p&gt;As we begin our investigation into the specifics of tools, frameworks, and existing guidance, we&amp;#8217;re capturing our learnings on our brand new &lt;a href=&quot;http://github.com/liike/docs&quot;&gt;docs repo&lt;/a&gt;. Over time we&amp;#8217;ll be including small topics and other written content.&lt;/p&gt;
-
-&lt;p&gt;Don is also maintaining a delicious stack called &lt;a href=&quot;http://delicious.com/stacks/view/Cz4m7h&quot;&gt;Mobile Web Dev&lt;/a&gt; to keep track of good articles and links. If you have any choice links we should know about, throw them in the comments below.&lt;/p&gt;
-</content>
-  </entry>
-  
-  <entry>
-    <title>We Liike Mobile Web Dev</title>
-    <link href="http://cqrsjourney.github.com/blog/2011/10/01/we-liike-mobile-web-dev/"/>
-    <updated>2011-10-01T08:51:00-07:00</updated>
-    <id>http://cqrsjourney.github.com/blog/2011/10/01/we-liike-mobile-web-dev</id>
-    <content type="html">&lt;p&gt;Over the past month I&amp;#8217;ve had some conversations with some Microsoft customers, product teams, and some field consultants to help us decide if we should invest in producing guidance for building mobile web apps. Everyone agreed this would be useful to customers, useful to Microsoft, and it&amp;#8217;s a space that actually warrants guidance. So it looks like we&amp;#8217;re on!&lt;/p&gt;
-
-&lt;p&gt;The plan is for Chris to be the dev lead with me playing the PM role. Other team members will join us after we define more project specifics. So yesterday Chris and I arrived at what we think would be a reasonable scenario. Try this on for size:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Customer:&lt;/strong&gt; &lt;em&gt;We have an existing solution (content and application logic) built using web technologies and we&amp;#8217;re considering an effort to explicitly expose it to mobile devices. What do we need to know to be successful?&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Yes, this is still pretty broad, but it allows us to start small and pragmatic. Plus, the real specifics are in the questions we&amp;#8217;ll be trying to answer. Maybe questions like:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Which existing assets can I reuse? And how?&lt;/li&gt;
-&lt;li&gt;How can I make the experience available offline?&lt;/li&gt;
-&lt;li&gt;Should we do device detection or feature detection? How?&lt;/li&gt;
-&lt;li&gt;How to accommodate for various screen sizes across devices?&lt;/li&gt;
-&lt;li&gt;When should I consider PhoneGap or a native solution?&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;Of course these are just examples. What we really want to hear are the questions YOU think are important, or were important when you did it. We&amp;#8217;ll be posting a survey soon with some suggestions and a chance for you share so we&amp;#8217;ll have a prioritized backlog to work from.&lt;/p&gt;
-
-&lt;p&gt;As far as deliverables go, we&amp;#8217;re planning to produce two things: the source to a mobile web solution and a set of written content to describe what we learned along the way. The solution will likely be derived from &lt;a href=&quot;http://tinyurl.com/projectsilk&quot;&gt;Project Silk&lt;/a&gt;&amp;#8217;s Mileage Stats reference implementation and the written content will either be a set of articles or chapters in a book depending on how far we decide to take it. Anything else you&amp;#8217;d like to see?&lt;/p&gt;
-</content>
-  </entry>
   
 </feed>
