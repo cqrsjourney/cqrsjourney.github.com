@@ -125,7 +125,7 @@ $.domReady(function() {
       
         <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://cqrsjourney.github.com/scenarios/possibilities.html" data-via="" data-counturl="http://cqrsjourney.github.com/scenarios/possibilities.html" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://cqrsjourney.github.com/scenarios/possibilities.html" data-via="mspnp" data-counturl="http://cqrsjourney.github.com/scenarios/possibilities.html" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -136,6 +136,12 @@ $.domReady(function() {
     </footer>
   
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -154,6 +160,22 @@ $.domReady(function() {
 <script type="text/javascript" src="http://cqrsjourney.disqus.com/recent_comments_widget.js?num_items=5&hide_avatars=1&avatar_size=18&excerpt_length=200"></script>
 </div>
 </section>
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("mspnp", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/mspnp" class="twitter-follow-button" data-width="208px" data-show-count="false">Follow @mspnp</a>
+  
+</section>
+
 
 
   
@@ -169,6 +191,23 @@ $.domReady(function() {
 
 </footer>
   
+
+<script type="text/javascript">
+    (function () {
+      var disqus_shortname = 'cqrsjourney';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://cqrsjourney.github.com/scenarios/possibilities.html';
+        var disqus_url = 'http://cqrsjourney.github.com/scenarios/possibilities.html';
+        var disqus_script = 'embed.js'
+      
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
 
 
 
@@ -201,9 +240,8 @@ $.domReady(function() {
     var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
     uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/YfRXs03s2FnezE5GdkBzA.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
-  })(); 
+  })();
 </script>
-
 
 </body>
 </html>
