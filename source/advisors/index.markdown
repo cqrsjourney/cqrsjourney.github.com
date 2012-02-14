@@ -11,7 +11,7 @@ footer: true
 How does the advisory board operate? Vist the [frequently asked questions](/advisors/faq).
 
 
-## Current Memebers
+## Current Members
 
 The [list](/advisors/members) of individuals who are currently advising.
 
