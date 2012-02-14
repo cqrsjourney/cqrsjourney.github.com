@@ -9,7 +9,7 @@
   <meta name="author" content="Microsoft patterns &amp; practices">
 
   
-  <meta name="description" content="                      Blog Archives                    Recent Posts        Complete Archives  Recent Comments  Github Repos      Status updating&#8...">
+  <meta name="description" content="                      Blog Archives                    Recent Posts        Complete Archives  Recent Comments  ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -95,36 +95,6 @@ $.domReady(function() {
 <script type="text/javascript" src="http://cqrsjourney.disqus.com/recent_comments_widget.js?num_items=5&hide_avatars=1&avatar_size=18&excerpt_length=200"></script>
 </div>
 </section>
-
-<section>
-  <h1>Github Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/mspnp">@mspnp</a> on Github
-  
-  <script type="text/javascript">
-    $.domReady(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'mspnp',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
-</section>
-
 
 
   
