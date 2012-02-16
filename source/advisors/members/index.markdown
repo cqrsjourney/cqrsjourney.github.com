@@ -38,7 +38,7 @@ The current list of advisory board members:
 [http://tavaresstudios.com/Blog](http://tavaresstudios.com/Blog)
 
 ## Christian Horsdal Gammelgaard
-[http://lucisferre.net/](http://lucisferre.net/)	
+[http://horsdal.blogspot.com/](http://horsdal.blogspot.com)	
 [@chr_horsdal](http://twitter.com/#!/chr_horsdal)
 
 ##	Christopher Bennage				
@@ -107,7 +107,7 @@ The current list of advisory board members:
 [@jorgefioranelli](http://twitter.com/#!/jorgefioranelli)
 					
 ##	Josh Elster 				
-[http://careers.stackoverflow.com/jelster](http://careers.stackoverflow.com/jelster)
+[http://www.liquidelectron.com](http://www.liquidelectron.com)
 [@liquid_electron](http://twitter.com/#!/liquid_electron)
 					
 ##	Kelly Leahy				
