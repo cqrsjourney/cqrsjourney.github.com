@@ -18,5 +18,5 @@ The [list](/advisors/members) of individuals who are currently advising.
 
 ## Meetings
 
-The next meeing will be held on February 14, 2012.
+The next meeing will be held on March 6, 2012.
 

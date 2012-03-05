@@ -10,7 +10,7 @@ footer: true
 The current list of advisory board members:
 
 ## Adam Dymitruk
-[http://adventuresinagile.blogspot.com/](http://adventuresinagile.blogspot.com/)	
+[http://dymitruk.com](http://dymitruk.com)	
 [@adymitruk](http://twitter.com/#!/adymitruk)
 
 ## Bill Wilder
