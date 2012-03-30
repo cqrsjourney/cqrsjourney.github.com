@@ -4,7 +4,7 @@
   <title>Project &#8220;a CQRS Journey&#8221;</title>
   <link href="http://cqrsjourney.github.com/atom.xml" rel="self"/>
   <link href="http://cqrsjourney.github.com/"/>
-  <updated>2012-03-04T22:17:53-08:00</updated>
+  <updated>2012-03-30T10:43:56-07:00</updated>
   <id>http://cqrsjourney.github.com/</id>
   <author>
     <name>Microsoft patterns &amp; practices</name>
@@ -13,5 +13,100 @@
     
   </author>
 
+  
+  <entry>
+    <title>Sample Application Overview</title>
+    <link href="http://cqrsjourney.github.com/blog/2012/03/30/Sample-Application-Overview/"/>
+    <updated>2012-03-30T10:15:00-07:00</updated>
+    <id>http://cqrsjourney.github.com/blog/2012/03/30/Sample-Application-Overview</id>
+    <content type="html">&lt;h2&gt;Contoso Conference Management System&lt;/h2&gt;
+
+&lt;p&gt;This post summarizes the key features and functionality of the proposed Contoso Conference Management System that we are builing in our CQRS Journey projects.
+You can read our motivation for choosing this domain &lt;a href=&quot;http://blogs.msdn.com/b/agile/archive/2012/01/24/picking-a-domain-for-cqrs-journey-ri.aspx&quot;&gt;here&lt;/a&gt; and &lt;a href=&quot;https://github.com/mspnp/cqrs-journey-doc/blob/master/Journey_00_Preface.markdown&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;Contoso plans to build an online conference management system that will enable Contoso&amp;#8217;s customers to plan and manage conferences that may be held at a physical location. The system will enable Contoso&amp;#8217;s customers to:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Plan the tracks, sessions, and speakers that make up a conference.&lt;/li&gt;
+&lt;li&gt;Manage the calls for speakers and paper submission process.&lt;/li&gt;
+&lt;li&gt;Manage registration (the sale of seats) for the conference.&lt;/li&gt;
+&lt;li&gt;Manage the conference on site, including badge printing and attendee lists.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;The following sections describe these functions in more detail.&lt;/p&gt;
+
+&lt;h2&gt;Overview&lt;/h2&gt;
+
+&lt;p&gt;The Conference Management System will be a multi-tennant, cloud-hosted application. Business customers will need to register with the system before they can create and manage their conferences.&lt;/p&gt;
+
+&lt;h2&gt;Conference Planning&lt;/h2&gt;
+
+&lt;p&gt;When a business customer creates a new conference, he must first define some characteristics of the conference such as:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Will the paper submission process require reviewers.&lt;/li&gt;
+&lt;li&gt;What will be the fee structure for paying Contoso.&lt;/li&gt;
+&lt;li&gt;Assigning key personnel such as the Program Chair and the Event Planner.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;Building a Program&lt;/h2&gt;
+
+&lt;p&gt;The business customer must define the conference program. For a simple conference this may be defined directly. For a more complex conference this may involve several steps:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Identifying Tracks and Track Chairs.&lt;/li&gt;
+&lt;li&gt;Identifying Reviewers.&lt;/li&gt;
+&lt;li&gt;Making calls for submissions.&lt;/li&gt;
+&lt;li&gt;Reviewing the papers and assigning speakers to sessions.&lt;/li&gt;
+&lt;li&gt;Finalizing Track programs.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;Selling Seats&lt;/h2&gt;
+
+&lt;p&gt;The business customer will define how many seats are available for the conference and also for any events that are part of the conference that only limited numbers may attend.&lt;/p&gt;
+
+&lt;p&gt;The system must manage the sale of seats to ensure that the conference and sub-events are not over subscribed. This part of the system will also operate wait-lists so that if cancellations are made, then the seats can be re-allocated.&lt;/p&gt;
+
+&lt;p&gt;The system will require that the names of the attendees are associated with the purchased seats so that badges can be printed.&lt;/p&gt;
+
+&lt;h2&gt;On-site Management&lt;/h2&gt;
+
+&lt;p&gt;When attendees arrive at the conference they should be registered against an attendee list, given badges, and given the opportunity to purchase additional seats for any extra events they would like to attend. The system that runs on-site at the conference should not assume that it is permanently connected to the main conference management system.&lt;/p&gt;
+
+&lt;h2&gt;Additional Features&lt;/h2&gt;
+
+&lt;p&gt;Contoso plans to roll out additional features as and when resources are available. These include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Support for Event Planners to manage equipment, signage, etc.&lt;/li&gt;
+&lt;li&gt;Tracking attendees at sessions via a barcode on the badge.&lt;/li&gt;
+&lt;li&gt;Score submissions for session feedback.&lt;/li&gt;
+&lt;li&gt;Live feed of session scores to track the best sessions.&lt;/li&gt;
+&lt;li&gt;Reporting feeback to speakers.&lt;/li&gt;
+&lt;li&gt;Archiving conference materials.&lt;/li&gt;
+&lt;li&gt;Publishing proceedings.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;Ubiquitous language&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/mspnp/cqrs-journey-wiki/wiki/Ubiquitous-language&quot;&gt;Here&lt;/a&gt; are the working definitions for the terms in our ubiquitous language for the Conference Managament System sample we are building. We will be adding to and modifying this list as the project proceeds&amp;#8230;&lt;/p&gt;
+
+&lt;h2&gt;More info&lt;/h2&gt;
+
+&lt;p&gt;Follow our progress in these 2 repos (you can set the watchers):&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/mspnp/cqrs-journey-doc&quot;&gt;https://github.com/mspnp/cqrs-journey-doc&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/mspnp/cqrs-journey-code&quot;&gt;https://github.com/mspnp/cqrs-journey-code&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+  </entry>
   
 </feed>
