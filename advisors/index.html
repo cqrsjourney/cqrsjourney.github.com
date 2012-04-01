@@ -9,7 +9,7 @@
   <meta name="author" content="Microsoft patterns &amp; practices">
 
   
-  <meta name="description" content="        Advisory Board Index      Feb 5th, 2012      FAQHow does the advisory board operate? Vist the frequently asked questions.Current MembersThe...">
+  <meta name="description" content="        Advisory Board Index      Mar 31st, 2012      FAQHow does the advisory board operate? Vist the frequently asked questions.Current MembersTh...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -84,7 +84,7 @@ $.domReady(function() {
 
 
 
-<time datetime="2012-02-05T12:52:00-08:00" pubdate  data-updated="true" >Feb 5<span>th</span>, 2012</time></p>
+<time datetime="2012-03-31T12:52:00-07:00" pubdate  data-updated="true" >Mar 31<span>st</span>, 2012</time></p>
   </header>
   
   <h2>FAQ</h2>
@@ -97,7 +97,46 @@ $.domReady(function() {
 
 <h2>Meetings</h2>
 
-<p>The next meeing will be held on March 6, 2012.</p>
+<p>The next meeing will be held on <strong>April 3, 2012</strong>, 10:30 Pacific.</p>
+
+<p>Agenda includes a discussion of the occasionally-connected scenario: registration management on-site.</p>
+
+<hr/>
+
+
+<h3>Previous meetings</h3>
+
+<ol>
+<li><strong>February 14</strong></br>
+  <ol type="a">
+    <li>Introduction and welcome to the project. Highlights that a common theme throughout the project will be journeys, explorations, maps, etc.</li>
+    <li>Rules of engagement</li>
+    <li>Evidence of need</li>
+    <li>Vision - a CQRS Journey</li>
+    <li>Target audience</li>
+    <li>Scope/deliverables</li>
+    <li>Discussion of bounded contexts vs. business components</li>
+    <li>P&P as a catalyst and facilitator, helping reach consensus in the community (one example is driving agreement between the thought leaders Greg Young and Udi Dahan that CQRS is a pattern, and that CQRS is not a top-level architecture. See more  <a href="http://www.udidahan.com/2012/02/10/udi-greg-reach-cqrs-agreement">here</a>)</li>    
+  </ol>
+</li>
+
+<li><strong>March 6</strong></br>
+  <ol type="a">
+    <li>Community contributions workflow</li>
+    <li>First stop: plain CQRS, no ES</li>
+    <li>Conf Mgmt sample system : <a href="https://github.com/mspnp/cqrs-journey-code/tree/dev/source/Conference/Registration">registration epic</a>. Code walkthrough, Domain Model discussion. Bursty scenarios</li>
+    <li>Walkthrough the <a href="https://github.com/mspnp/cqrs-journey-doc/">guidance</a> early draft - the Reference part & the Journey part</li>
+  </ol>
+</li>
+
+<li><strong>March 21</strong></br>
+  <ol type="a">
+    <li>Registration process saga/workflow implementation</li>
+    <li>Impromptu discussion on Sagas vs. Workflow vs. State Machines. Check out the <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.93.7258&rep=rep1&type=pdf">original paper</a> on sagas </li>
+    <li>Doc walkthrough: <a href="http://pundit.cloudapp.net/#Journey_03_OrdersBC.doc">First stop in the journey chapter</a></li>
+  </ol>
+</li>
+
 
   
     <footer>
@@ -113,7 +152,7 @@ $.domReady(function() {
 
 
 
-<time datetime="2012-02-05T12:52:00-08:00" pubdate  data-updated="true" >Feb 5<span>th</span>, 2012</time>
+<time datetime="2012-03-31T12:52:00-07:00" pubdate  data-updated="true" >Mar 31<span>st</span>, 2012</time>
         
       </p>
       
@@ -131,6 +170,12 @@ $.domReady(function() {
   
 </article>
 
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
 </div>
 
 <aside class="sidebar">
@@ -141,6 +186,10 @@ $.domReady(function() {
     
       <li class="post">
         <a href="/blog/2012/03/30/Sample-Application-Overview/">Sample Application Overview</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/02/25/Taking-Community-Contibutions/">Taking Community Contributions</a>
       </li>
     
   <li><a href="/blog/archives">Complete Archives</a></li>
@@ -183,6 +232,23 @@ $.domReady(function() {
 
 </footer>
   
+
+<script type="text/javascript">
+    (function () {
+      var disqus_shortname = 'cqrsjourney';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://cqrsjourney.github.com/advisors/index.html';
+        var disqus_url = 'http://cqrsjourney.github.com/advisors/index.html';
+        var disqus_script = 'embed.js'
+      
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
 
 
 

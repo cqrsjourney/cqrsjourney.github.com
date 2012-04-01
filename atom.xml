@@ -4,7 +4,7 @@
   <title>Project &#8220;a CQRS Journey&#8221;</title>
   <link href="http://cqrsjourney.github.com/atom.xml" rel="self"/>
   <link href="http://cqrsjourney.github.com/"/>
-  <updated>2012-03-30T10:43:56-07:00</updated>
+  <updated>2012-04-01T09:20:06-07:00</updated>
   <id>http://cqrsjourney.github.com/</id>
   <author>
     <name>Microsoft patterns &amp; practices</name>
@@ -106,6 +106,35 @@ You can read our motivation for choosing this domain &lt;a href=&quot;http://blo
 &lt;li&gt;&lt;a href=&quot;https://github.com/mspnp/cqrs-journey-code&quot;&gt;https://github.com/mspnp/cqrs-journey-code&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
+</content>
+  </entry>
+  
+  <entry>
+    <title>Taking Community Contributions</title>
+    <link href="http://cqrsjourney.github.com/blog/2012/02/25/Taking-Community-Contibutions/"/>
+    <updated>2012-02-25T06:45:00-08:00</updated>
+    <id>http://cqrsjourney.github.com/blog/2012/02/25/Taking-Community-Contibutions</id>
+    <content type="html">&lt;p&gt;We have positioned the CQRS guidance project as a learning journey. We’ve formed a stellar &lt;a href=&quot;http://cqrsjourney.github.com/advisors/members/&quot;&gt;advisory board&lt;/a&gt; and performed some &lt;a href=&quot;http://www.surveymonkey.com/s/cqrsguide&quot;&gt;public consultation&lt;/a&gt; that helped us scope the project initially. While this is good news, we recognize that for this project to be successful, we need to be not only open and transparent, but we also need to collaborate with the community (in its way a global village) more closely. That’s why we are extremely happy and proud to announce that for the first time in the history of the &lt;a href=&quot;http://msdn.com/practices&quot;&gt;Microsoft patterns &amp;amp; practices&lt;/a&gt; team, the following: &lt;strong&gt;In the true spirit of open source, we will be taking community contributions on the CQRS Journey project&lt;/strong&gt;. This means:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The written guidance and the sample code will be developed in the open and with community involvement.&lt;/li&gt;
+&lt;li&gt;We, Microsoft patterns &amp;amp; practices team, will review and accept contributions that meet our guidelines.&lt;/li&gt;
+&lt;li&gt;The final deliverable will have an open source license (&lt;a href=&quot;http://opensource.org/licenses/Apache-2.0&quot;&gt;Apache 2.0&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;The project will be hosted on GitHub. Our repositories are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Main code repo&lt;/strong&gt; - &lt;a href=&quot;https://github.com/mspnp/cqrs-journey-code&quot;&gt;https://github.com/mspnp/cqrs-journey-code&lt;/a&gt;. Also, includes our prioritized backlog of work items (published under &lt;a href=&quot;https://github.com/mspnp/cqrs-journey-code/issues&quot;&gt;Issues&lt;/a&gt;) and includes stories, dev and test tasks, and bugs.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Guidance repo&lt;/strong&gt; - &lt;a href=&quot;https://github.com/mspnp/cqrs-journey-doc&quot;&gt;https://github.com/mspnp/cqrs-journey-doc&lt;/a&gt;. Also, includes the backlog of doc stories, tasks, and content bugs.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Project wiki&lt;/strong&gt; - &lt;a href=&quot;https://github.com/mspnp/cqrs-journey-wiki&quot;&gt;https://github.com/mspnp/cqrs-journey-wiki&lt;/a&gt;, where we will try to reconcile various key CQRS and ES related terms and also maintain the ubiquitous language for the domain of the sample application we are building.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;You can find the contributions guidelines under Contribute section.&lt;/p&gt;
+
+&lt;p&gt;Also, check out our company-wide &lt;a href=&quot;http://www.microsoft.com/en-us/openness/default.aspx#home/videos/Commitment-to-Openness&quot;&gt;openness initiative&lt;/a&gt; and brace yourself for a ride! We look forward to working with you! Please keep sending us your feedback.&lt;/p&gt;
 </content>
   </entry>
   
