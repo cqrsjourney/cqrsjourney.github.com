@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Advisory Board Index"
-date: 2012-03-31 12:52
+date: 2012-04-05 10:37
 comments: true
 sharing: true
 footer: true
@@ -18,7 +18,7 @@ The [list](/advisors/members) of individuals who are currently advising.
 
 ## Meetings
 
-The next meeing will be held on **April 3, 2012**, 10:30 Pacific.
+The next meeing will be held on **April  17, 2012**, 10:30 Pacific.
 
 Agenda includes a discussion of the occasionally-connected scenario: registration management on-site.
 
@@ -54,6 +54,16 @@ Agenda includes a discussion of the occasionally-connected scenario: registratio
     <li>Registration process saga/workflow implementation</li>
     <li>Impromptu discussion on Sagas vs. Workflow vs. State Machines. Check out the <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.93.7258&rep=rep1&type=pdf">original paper</a> on sagas </li>
     <li>Doc walkthrough: <a href="http://pundit.cloudapp.net/#Journey_03_OrdersBC.doc">First stop in the journey chapter</a></li>
+  </ol>
+</li>
+
+
+<li><strong>April 3</strong></br>
+  <ol type="a">
+    <li>Occasionally-connected scenario: Managing attendance on-site.</li>
+    <li>Querying the read-side, IViewRepository and leaky abstractions.</li>
+    <li>Reservation expiration.</li>
+    <li>Executable specs/acceptance tests with SpecFlow.</li>
   </ol>
 </li>
 
