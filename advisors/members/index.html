@@ -283,11 +283,6 @@ $.domReady(function() {
 
 <p><a href="http://www.reliablesoftware.com/dasblog/default.aspx">http://www.reliablesoftware.com/dasblog/default.aspx</a></p>
 
-<h3>Michael Wood</h3>
-
-<p><a href="http://www.mvwood.com/blog">http://www.mvwood.com/blog</a>
-<a href="http://twitter.com/#!/mikewo">@mikewo</a></p>
-
 <h3>Mikael Östberg, MVP</h3>
 
 <p><a href="http://www.inloop.se/blog">http://www.inloop.se/blog</a>
@@ -310,11 +305,6 @@ $.domReady(function() {
 
 <p><a href="http://blog.ricardovillalobos.com/">http://blog.ricardovillalobos.com/</a>
 <a href="http://twitter.com/#!/ricvilla">@ricvilla</a></p>
-
-<h3>Rinat Abdullin</h3>
-
-<p><a href="http://abdullin.com">http://abdullin.com</a>
-<a href="http://twitter.com/#!/abdullin">@abdullin</a></p>
 
 <h3>Ritesh Rao</h3>
 
@@ -449,6 +439,35 @@ $.domReady(function() {
   
 </section>
 
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/mspnp">@mspnp</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mspnp',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
 
 
   

@@ -95,7 +95,7 @@ $.domReady(function() {
 
 <p>In order to provide clarification and to encourage solidarity, members on the board asked the <a href="/team" title="the official team members">project team</a> to provide a terse and focused statement about the project&#8217;s objective. After the meeting concluded, the team summarized the objective as:</p>
 
-<p>Liquid error: undefined method `map&#8217; for #&lt;String:0x2950b60></p>
+<p>Liquid error: undefined method `map&#8217; for #&lt;String:0x274f3e0></p>
 
 <h2>Deliverables</h2>
 
@@ -230,6 +230,35 @@ $.domReady(function() {
   
 </section>
 
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/mspnp">@mspnp</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mspnp',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
 
 
   
