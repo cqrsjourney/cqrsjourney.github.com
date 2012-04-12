@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Greenfield mobile-first development - Project "a CQRS Journey"</title>
+  <title>The Road to V1 - Project "a CQRS Journey"</title>
   <meta name="author" content="Microsoft patterns &amp; practices">
 
   
-  <meta name="description" content="        Greenfield Mobile-first Development      Oct 11th, 2011      You are the technical lead for a new startup venture. The company has a brilli...">
+  <meta name="description" content="Handling Complexity and ChangeDDD and ES reduce complexity and cost of change. They would look like useless magic in stable and predictable project...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://cqrsjourney.github.com/scenarios/greenfield-mobile-first.html">
+  <link rel="canonical" href="http://cqrsjourney.github.com/blog/2012/04/12/Road+to+V1/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -70,11 +70,15 @@ $.domReady(function() {
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Greenfield Mobile-first Development</h1>
-    <p class="meta">
+    
+      <h1 class="entry-title">The Road to V1</h1>
+    
+    
+      <p class="meta">
+        
 
 
 
@@ -84,60 +88,126 @@ $.domReady(function() {
 
 
 
-<time datetime="2011-10-11T11:17:00-07:00" pubdate  data-updated="true" >Oct 11<span>th</span>, 2011</time></p>
+<time datetime="2012-04-12T15:40:00-07:00" pubdate  data-updated="true" >Apr 12<span>th</span>, 2012</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
   </header>
-  
-  <p>You are the technical lead for a new startup venture. The company has a brilliant new take on the social web and they want to get to market as soon as possible. They believe that their app will primarily be used on the go, but they still value a desktop experience. Funds are limited and they need to prove to investors that their product is viable quickly. High level considerations for your project are:</p>
+
+
+<div class="entry-content"><h2>Handling Complexity and Change</h2>
+
+<blockquote><p>DDD and ES reduce complexity and cost of change. They would look like useless magic in stable and predictable projects.<br/>
+<em>- Rinat Abdullin, CQRS Advisors Mail List</em></p></blockquote>
+
+<h2>Introduction</h2>
+
+<p>One of the topics discussed on the CQRS Advisors Mail List was how to make the CQRS Journey Project more realistic. In the real world, projects face uncertainty, risk, and volatility in requirements. One of the benefits of applying ideas from DDD and using event sourcing is to make that uncertainty, risk, and volatility more manageable.</p>
+
+<p>As part of our CQRS Journey, we are planning a pseudo-production release of V1 of the Contoso Conference Management System that includes the core conference management functionality. We will then explore, and document our experiences of enhancing and maintaining the V1 release as we continue to work on the Conference Management System.</p>
+
+<h2>Contents of the V1 Release</h2>
+
+<p>The following sections outline our planned functionality for the V1 release.</p>
+
+<h3>Conference Management</h3>
+
+<p>This will be a simple CRUD style bounded context that enables a <a href="https://github.com/mspnp/cqrs-journey-wiki/wiki/Ubiquitous-language">Business Customer</a> to create and manage conferences. A Business Customer will be able to:</p>
 
 <ul>
-<li>Smartphones and tablets are the initial targeted devices, but the ultimate target is all browsers.</li>
-<li>User experience is essential (and hence responsiveness).</li>
-<li>There is no existing assets, the team can use whatever stack they believe will help them achieve the goals.</li>
-<li>The product needs to be released early and often.</li>
-<li>Features should be prioritized by the anticipated ROI.</li>
-<li>The app should support the delivery of ads.</li>
+<li>Create and update the conference data such as name, description, and dates.</li>
+<li>Publish and un-publish a conference.</li>
+<li>Manage the <a href="https://github.com/mspnp/cqrs-journey-wiki/wiki/Ubiquitous-language">Seat Types</a> (e.g. full-conference, workshop, cocktail party) available at a conference.</li>
+<li>View a list of <a href="https://github.com/mspnp/cqrs-journey-wiki/wiki/Ubiquitous-language">Attendees</a>.</li>
 </ul>
 
 
-<div class="voting-panel">
-What do you think?
-Click <strong>Like</strong> <a href="#disqus_thread">below</a> to vote this scenario up. (Or you can click the other button&#8230;)
+<h3>Registrations</h3>
+
+<p>This bounded context will implement the CQRS pattern and use event sourcing. The functionality in this bounded context includes:</p>
+
+<ul>
+<li>Enabling a <a href="https://github.com/mspnp/cqrs-journey-wiki/wiki/Ubiquitous-language">Registrant</a> to create an <a href="https://github.com/mspnp/cqrs-journey-wiki/wiki/Ubiquitous-language">Order</a> for seats at a conference.</li>
+<li>Handling partial fulfillment of Orders.</li>
+<li>Enabling a Registrant to locate a previously created order using an <a href="https://github.com/mspnp/cqrs-journey-wiki/wiki/Ubiquitous-language">Access Code</a>.</li>
+<li>Enabling a Registrant to assign Attendees to Seats.</li>
+<li>A task-based UI.</li>
+</ul>
+
+
+<h3>Integration</h3>
+
+<p>The Conference Management and Registrations bounded contexts will be integrated so that any changes made by the Business Customer to the quota of Seats at a Conference are detected by the Registrations bounded context. Information about the Attendees is also shared between the two bounded contexts.</p>
+
+<h3>Payments</h3>
+
+<p>Part of the Registration Process includes the Registrant making a payment for the Order. The system will include a fake payment service that simulates handling payments by credit card and by invoice.</p>
+
+<h3>Infrastructure</h3>
+
+<p>The Contoso Conference Management System will be deployed to Windows Azure and use the Windows Azure Service Bus to provide its messaging infrastructure for Commands and Events. It will also be possible to run the application locally without requiring a Windows Azure subscription.</p>
+
+<h2>More Information</h2>
+
+<p>You can follow our work in these two GitHub repositories:</p>
+
+<ul>
+<li><a href="https://github.com/mspnp/cqrs-journey-doc">cqrs-journey-doc repository</a></li>
+<li><a href="https://github.com/mspnp/cqrs-journey-code">cqrs-journey-code repository</a></li>
+</ul>
+
+
+<p>You can track our progress against the V1 release milestone:</p>
+
+<ul>
+<li><a href="https://github.com/mspnp/cqrs-journey-code/issues?milestone=4">V1 Release Milestone</a></li>
+</ul>
+
 </div>
 
 
-<p><a rel="home" href="/scenarios/index.html">Index</a>
-<a rel="next" href="/scenarios/line-of-business.html">Next</a></p>
-
-  
-    <footer>
-      <p class="meta">
-        
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2011-10-11T11:17:00-07:00" pubdate  data-updated="true" >Oct 11<span>th</span>, 2011</time>
-        
-      </p>
+  <footer>
+    <p class="meta">
       
-        <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://cqrsjourney.github.com/scenarios/greenfield-mobile-first.html" data-via="mspnp" data-counturl="http://cqrsjourney.github.com/scenarios/greenfield-mobile-first.html" >Tweet</a>
+
+<span class="byline author vcard">Posted by <span class="fn">Microsoft patterns &amp; practices</span></span>
+
+      
+
+
+
+
+
+  
+
+
+
+<time datetime="2012-04-12T15:40:00-07:00" pubdate  data-updated="true" >Apr 12<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/journey/'>Journey</a>, <a class='category' href='/blog/categories/maintenance/'>Maintenance</a>, <a class='category' href='/blog/categories/ri/'>RI</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://cqrsjourney.github.com/blog/2012/04/12/Road+to+V1/" data-via="mspnp" data-counturl="http://cqrsjourney.github.com/blog/2012/04/12/Road+to+V1/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
   
 </div>
 
-      
-    </footer>
-  
+    
+  </footer>
 </article>
 
   <section>
@@ -242,8 +312,8 @@ Click <strong>Like</strong> <a href="#disqus_thread">below</a> to vote this scen
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://cqrsjourney.github.com/scenarios/greenfield-mobile-first.html';
-        var disqus_url = 'http://cqrsjourney.github.com/scenarios/greenfield-mobile-first.html';
+        var disqus_identifier = 'http://cqrsjourney.github.com/blog/2012/04/12/Road+to+V1/';
+        var disqus_url = 'http://cqrsjourney.github.com/blog/2012/04/12/Road+to+V1/';
         var disqus_script = 'embed.js'
       
 

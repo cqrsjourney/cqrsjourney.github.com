@@ -9,7 +9,7 @@
   <meta name="author" content="Microsoft patterns &amp; practices">
 
   
-  <meta name="description" content="Contoso Conference Management SystemThis post summarizes the key features and functionality of the proposed Contoso Conference Management System th...">
+  <meta name="description" content="Handling Complexity and ChangeDDD and ES reduce complexity and cost of change. They would look like useless magic in stable and predictable project...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -71,6 +71,109 @@ $.domReady(function() {
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/04/12/Road+to+V1/">The Road to V1</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2012-04-12T15:40:00-07:00" pubdate  data-updated="true" >Apr 12<span>th</span>, 2012</time>
+        
+         | <a href="/blog/2012/04/12/Road+to+V1/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Handling Complexity and Change</h2>
+
+<blockquote><p>DDD and ES reduce complexity and cost of change. They would look like useless magic in stable and predictable projects.<br/>
+<em>- Rinat Abdullin, CQRS Advisors Mail List</em></p></blockquote>
+
+<h2>Introduction</h2>
+
+<p>One of the topics discussed on the CQRS Advisors Mail List was how to make the CQRS Journey Project more realistic. In the real world, projects face uncertainty, risk, and volatility in requirements. One of the benefits of applying ideas from DDD and using event sourcing is to make that uncertainty, risk, and volatility more manageable.</p>
+
+<p>As part of our CQRS Journey, we are planning a pseudo-production release of V1 of the Contoso Conference Management System that includes the core conference management functionality. We will then explore, and document our experiences of enhancing and maintaining the V1 release as we continue to work on the Conference Management System.</p>
+
+<h2>Contents of the V1 Release</h2>
+
+<p>The following sections outline our planned functionality for the V1 release.</p>
+
+<h3>Conference Management</h3>
+
+<p>This will be a simple CRUD style bounded context that enables a <a href="https://github.com/mspnp/cqrs-journey-wiki/wiki/Ubiquitous-language">Business Customer</a> to create and manage conferences. A Business Customer will be able to:</p>
+
+<ul>
+<li>Create and update the conference data such as name, description, and dates.</li>
+<li>Publish and un-publish a conference.</li>
+<li>Manage the <a href="https://github.com/mspnp/cqrs-journey-wiki/wiki/Ubiquitous-language">Seat Types</a> (e.g. full-conference, workshop, cocktail party) available at a conference.</li>
+<li>View a list of <a href="https://github.com/mspnp/cqrs-journey-wiki/wiki/Ubiquitous-language">Attendees</a>.</li>
+</ul>
+
+
+<h3>Registrations</h3>
+
+<p>This bounded context will implement the CQRS pattern and use event sourcing. The functionality in this bounded context includes:</p>
+
+<ul>
+<li>Enabling a <a href="https://github.com/mspnp/cqrs-journey-wiki/wiki/Ubiquitous-language">Registrant</a> to create an <a href="https://github.com/mspnp/cqrs-journey-wiki/wiki/Ubiquitous-language">Order</a> for seats at a conference.</li>
+<li>Handling partial fulfillment of Orders.</li>
+<li>Enabling a Registrant to locate a previously created order using an <a href="https://github.com/mspnp/cqrs-journey-wiki/wiki/Ubiquitous-language">Access Code</a>.</li>
+<li>Enabling a Registrant to assign Attendees to Seats.</li>
+<li>A task-based UI.</li>
+</ul>
+
+
+<h3>Integration</h3>
+
+<p>The Conference Management and Registrations bounded contexts will be integrated so that any changes made by the Business Customer to the quota of Seats at a Conference are detected by the Registrations bounded context. Information about the Attendees is also shared between the two bounded contexts.</p>
+
+<h3>Payments</h3>
+
+<p>Part of the Registration Process includes the Registrant making a payment for the Order. The system will include a fake payment service that simulates handling payments by credit card and by invoice.</p>
+
+<h3>Infrastructure</h3>
+
+<p>The Contoso Conference Management System will be deployed to Windows Azure and use the Windows Azure Service Bus to provide its messaging infrastructure for Commands and Events. It will also be possible to run the application locally without requiring a Windows Azure subscription.</p>
+
+<h2>More Information</h2>
+
+<p>You can follow our work in these two GitHub repositories:</p>
+
+<ul>
+<li><a href="https://github.com/mspnp/cqrs-journey-doc">cqrs-journey-doc repository</a></li>
+<li><a href="https://github.com/mspnp/cqrs-journey-code">cqrs-journey-code repository</a></li>
+</ul>
+
+
+<p>You can track our progress against the V1 release milestone:</p>
+
+<ul>
+<li><a href="https://github.com/mspnp/cqrs-journey-code/issues?milestone=4">V1 Release Milestone</a></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -263,6 +366,10 @@ You can read our motivation for choosing this domain <a href="http://blogs.msdn.
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/04/12/Road+to+V1/">The Road to V1</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2012/03/30/Sample-Application-Overview/">Sample Application Overview</a>
