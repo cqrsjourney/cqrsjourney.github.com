@@ -163,10 +163,6 @@ The current list of advisory board members:
 ###	Michael Stiefel 				
 [http://www.reliablesoftware.com/dasblog/default.aspx](http://www.reliablesoftware.com/dasblog/default.aspx)
 
-### Michael Wood
-[http://www.mvwood.com/blog](http://www.mvwood.com/blog)
-[@mikewo](http://twitter.com/#!/mikewo)
-					
 ###	Mikael Östberg, MVP				
 [http://www.inloop.se/blog](http://www.inloop.se/blog)
 [@MikaelOstberg](http://twitter.com/#!/MikaelOstberg)
@@ -184,10 +180,6 @@ The current list of advisory board members:
 ###	Ricardo Villalobos				
 [http://blog.ricardovillalobos.com/](http://blog.ricardovillalobos.com/)
 [@ricvilla](http://twitter.com/#!/ricvilla)
-
-###	Rinat Abdullin				
-[http://abdullin.com](http://abdullin.com)
-[@abdullin](http://twitter.com/#!/abdullin)
 
 					
 ###	Ritesh Rao
