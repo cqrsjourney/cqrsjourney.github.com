@@ -1,0 +1,73 @@
+---
+layout: post
+title: "The Road to V1"
+date: 2012-04-12 15:40
+comments: true
+categories: 
+- RI 
+- Journey
+- Maintenance
+---
+
+## Handling Complexity and Change
+
+> DDD and ES reduce complexity and cost of change. They would look like useless magic in stable and predictable projects.  
+> _- Rinat Abdullin, CQRS Advisors Mail List_
+
+## Introduction
+
+One of the topics discussed on the CQRS Advisors Mail List was how to make the CQRS Journey Project more realistic. In the real world, projects face uncertainty, risk, and volatility in requirements. One of the benefits of applying ideas from DDD and using event sourcing is to make that uncertainty, risk, and volatility more manageable.
+
+As part of our CQRS Journey, we are planning a pseudo-production release of V1 of the Contoso Conference Management System that includes the core conference management functionality. We will then explore, and document our experiences of enhancing and maintaining the V1 release as we continue to work on the Conference Management System.
+
+## Contents of the V1 Release
+
+The following sections outline our planned functionality for the V1 release.
+
+### Conference Management
+
+This will be a simple CRUD style bounded context that enables a [Business Customer][ul] to create and manage conferences. A Business Customer will be able to:
+
+* Create and update the conference data such as name, description, and dates.
+* Publish and un-publish a conference.
+* Manage the [Seat Types][ul] (e.g. full-conference, workshop, cocktail party) available at a conference.
+* View a list of [Attendees][ul].
+
+### Registrations
+
+This bounded context will implement the CQRS pattern and use event sourcing. The functionality in this bounded context includes:
+
+* Enabling a [Registrant][ul] to create an [Order][ul] for seats at a conference.
+* Handling partial fulfillment of Orders.
+* Enabling a Registrant to locate a previously created order using an [Access Code][ul].
+* Enabling a Registrant to assign Attendees to Seats.
+* A task-based UI.
+
+### Integration
+
+The Conference Management and Registrations bounded contexts will be integrated so that any changes made by the Business Customer to the quota of Seats at a Conference are detected by the Registrations bounded context. Information about the Attendees is also shared between the two bounded contexts.
+
+### Payments
+
+Part of the Registration Process includes the Registrant making a payment for the Order. The system will include a fake payment service that simulates handling payments by credit card and by invoice.
+
+### Infrastructure
+
+The Contoso Conference Management System will be deployed to Windows Azure and use the Windows Azure Service Bus to provide its messaging infrastructure for Commands and Events. It will also be possible to run the application locally without requiring a Windows Azure subscription.
+
+## More Information
+
+You can follow our work in these two GitHub repositories:
+
+* [cqrs-journey-doc repository][journeydoc]
+* [cqrs-journey-code repository][journeycode]
+
+You can track our progress against the V1 release milestone:
+
+* [V1 Release Milestone][milestone]
+
+
+[ul]:			https://github.com/mspnp/cqrs-journey-wiki/wiki/Ubiquitous-language
+[journeydoc]:	https://github.com/mspnp/cqrs-journey-doc
+[journeycode]:	https://github.com/mspnp/cqrs-journey-code
+[milestone]:    https://github.com/mspnp/cqrs-journey-code/issues?milestone=4
