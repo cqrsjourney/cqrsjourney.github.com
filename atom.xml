@@ -4,7 +4,7 @@
   <title>Project &#8220;a CQRS Journey&#8221;</title>
   <link href="http://cqrsjourney.github.com/atom.xml" rel="self"/>
   <link href="http://cqrsjourney.github.com/"/>
-  <updated>2012-04-12T16:06:54-07:00</updated>
+  <updated>2012-04-12T16:09:51-07:00</updated>
   <id>http://cqrsjourney.github.com/</id>
   <author>
     <name>Microsoft patterns &amp; practices</name>
@@ -16,9 +16,9 @@
   
   <entry>
     <title>The Road to V1</title>
-    <link href="http://cqrsjourney.github.com/blog/2012/04/12/Road+to+V1/"/>
+    <link href="http://cqrsjourney.github.com/blog/2012/04/12/Road-to-V1/"/>
     <updated>2012-04-12T15:40:00-07:00</updated>
-    <id>http://cqrsjourney.github.com/blog/2012/04/12/Road to V1</id>
+    <id>http://cqrsjourney.github.com/blog/2012/04/12/Road-to-V1</id>
     <content type="html">&lt;h2&gt;Handling Complexity and Change&lt;/h2&gt;
 
 &lt;blockquote&gt;&lt;p&gt;DDD and ES reduce complexity and cost of change. They would look like useless magic in stable and predictable projects.&lt;br/&gt;
