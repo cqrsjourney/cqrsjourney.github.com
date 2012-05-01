@@ -35,10 +35,6 @@ The current list of advisory board members:
 ### Chris Martin 
 [http://blog.eventday.com/blog/](http://blog.eventday.com/blog/)
 
-### Chris Nicola
-[http://lucisferre.net/](http://lucisferre.net/)	
-[@lucisferre](http://twitter.com/#!/lucisferre)
-
 ###	Chris Tavares				
 [http://tavaresstudios.com/Blog](http://tavaresstudios.com/Blog)
 

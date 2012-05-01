@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Advisory Board Index"
-date: 2012-04-05 10:37
+date: 2012-04-18 10:37
 comments: true
 sharing: true
 footer: true
@@ -18,7 +18,7 @@ The [list](/advisors/members) of individuals who are currently advising.
 
 ## Meetings
 
-The next meeing will be held on **April  17, 2012**, 10:30 Pacific.
+The next meeing will be held on **May 10, 2012**, 8:30 Pacific.
 
 Agenda includes a discussion of the occasionally-connected scenario: registration management on-site.
 
@@ -64,6 +64,16 @@ Agenda includes a discussion of the occasionally-connected scenario: registratio
     <li>Querying the read-side, IViewRepository and leaky abstractions.</li>
     <li>Reservation expiration.</li>
     <li>Executable specs/acceptance tests with SpecFlow.</li>
+  </ol>
+</li>
+
+
+<li><strong>April 17</strong></br>
+  <ol type="a">
+    <li>The road to V1</li>
+    <li>Conference creation BC and integration w. Registration BC</li>
+    <li>Payment BC</li>
+    <li>Conversion of  Order and Seat Availability aggregates to use event sourcing</li>
   </ol>
 </li>
 
