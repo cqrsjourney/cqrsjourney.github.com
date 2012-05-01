@@ -4,7 +4,7 @@
   <title>Project &#8220;a CQRS Journey&#8221;</title>
   <link href="http://cqrsjourney.github.com/atom.xml" rel="self"/>
   <link href="http://cqrsjourney.github.com/"/>
-  <updated>2012-05-01T10:56:56-07:00</updated>
+  <updated>2012-05-01T11:04:47-07:00</updated>
   <id>http://cqrsjourney.github.com/</id>
   <author>
     <name>Microsoft patterns &amp; practices</name>
@@ -16,9 +16,9 @@
   
   <entry>
     <title>Open Call for Enhancements to Event Store Implementation</title>
-    <link href="http://cqrsjourney.github.com/blog/2012/05/01/Open_Call-For-Enhancements-To-Event-Store/"/>
+    <link href="http://cqrsjourney.github.com/blog/2012/05/01/Open-Call-For-Enhancements-To-Event-Store/"/>
     <updated>2012-05-01T10:36:00-07:00</updated>
-    <id>http://cqrsjourney.github.com/blog/2012/05/01/Open_Call-For-Enhancements-To-Event-Store</id>
+    <id>http://cqrsjourney.github.com/blog/2012/05/01/Open-Call-For-Enhancements-To-Event-Store</id>
     <content type="html">&lt;p&gt;In the process of our conversion of the Registration process BC to use event sourcing, we have realized we needed some robust event sourcing infrastructure (both for storing the events, and publishing them). We wanted this implementation to be Windows Azure-friendly, as this is where we’ll bedeploying our system to.&lt;/p&gt;
 
 &lt;p&gt;We have now built our initial implementation of the Azure table-based event store and it’s ready for a broad community review and for enhancements. It seems to be self-contained enough and will benefit from crowd-sourcing. Get it from here:&lt;/p&gt;
