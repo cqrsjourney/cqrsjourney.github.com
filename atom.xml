@@ -4,7 +4,7 @@
   <title>Project &#8220;a CQRS Journey&#8221;</title>
   <link href="http://cqrsjourney.github.com/atom.xml" rel="self"/>
   <link href="http://cqrsjourney.github.com/"/>
-  <updated>2012-04-12T16:09:51-07:00</updated>
+  <updated>2012-05-01T10:56:56-07:00</updated>
   <id>http://cqrsjourney.github.com/</id>
   <author>
     <name>Microsoft patterns &amp; practices</name>
@@ -13,6 +13,33 @@
     
   </author>
 
+  
+  <entry>
+    <title>Open Call for Enhancements to Event Store Implementation</title>
+    <link href="http://cqrsjourney.github.com/blog/2012/05/01/Open_Call-For-Enhancements-To-Event-Store/"/>
+    <updated>2012-05-01T10:36:00-07:00</updated>
+    <id>http://cqrsjourney.github.com/blog/2012/05/01/Open_Call-For-Enhancements-To-Event-Store</id>
+    <content type="html">&lt;p&gt;In the process of our conversion of the Registration process BC to use event sourcing, we have realized we needed some robust event sourcing infrastructure (both for storing the events, and publishing them). We wanted this implementation to be Windows Azure-friendly, as this is where we’ll bedeploying our system to.&lt;/p&gt;
+
+&lt;p&gt;We have now built our initial implementation of the Azure table-based event store and it’s ready for a broad community review and for enhancements. It seems to be self-contained enough and will benefit from crowd-sourcing. Get it from here:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Repo: &lt;a href=&quot;https://github.com/mspnp/cqrs-journey-code&quot;&gt;https://github.com/mspnp/cqrs-journey-code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Infrastructure solution: &lt;a href=&quot;https://github.com/mspnp/cqrs-journey-code/blob/dev/source/Infrastructure.sln&quot;&gt;https://github.com/mspnp/cqrs-journey-code/blob/dev/source/Infrastructure.sln&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;We really look forward to your participation in getting this event store production ready!&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Notes:&lt;/em&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;There’s another implementation based on SQL server. It is meant for running the sample app locally and it’s not ready for production. Nor is it in our scope to make it production-ready. So, when prioritizing where to direct your effort, please choose the Azure table-based implementation.&lt;/li&gt;
+&lt;li&gt;This is currently not intended to be a general-purpose, pluggable component. We’ve designed and developed it to fit with our sample application.&lt;/li&gt;
+&lt;/ol&gt;
+
+</content>
+  </entry>
   
   <entry>
     <title>The Road to V1</title>
