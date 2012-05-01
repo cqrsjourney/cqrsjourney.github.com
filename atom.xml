@@ -4,7 +4,7 @@
   <title>Project &#8220;a CQRS Journey&#8221;</title>
   <link href="http://cqrsjourney.github.com/atom.xml" rel="self"/>
   <link href="http://cqrsjourney.github.com/"/>
-  <updated>2012-05-01T11:04:47-07:00</updated>
+  <updated>2012-05-01T11:23:03-07:00</updated>
   <id>http://cqrsjourney.github.com/</id>
   <author>
     <name>Microsoft patterns &amp; practices</name>
@@ -34,8 +34,8 @@
 &lt;p&gt;&lt;em&gt;Notes:&lt;/em&gt;&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;There’s another implementation based on SQL server. It is meant for running the sample app locally and it’s not ready for production. Nor is it in our scope to make it production-ready. So, when prioritizing where to direct your effort, please choose the Azure table-based implementation.&lt;/li&gt;
-&lt;li&gt;This is currently not intended to be a general-purpose, pluggable component. We’ve designed and developed it to fit with our sample application.&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;This is currently not intended to be a general-purpose, pluggable component. We’ve designed and developed it to fit with our sample application.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;There’s another implementation based on SQL server. It is meant for running the sample app locally and it’s not ready for production. Nor is it in our scope to make it production-ready. So, when prioritizing where to direct your effort, please choose the Azure table-based implementation.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 </content>
