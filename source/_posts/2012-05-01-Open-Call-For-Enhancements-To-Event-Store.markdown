@@ -20,5 +20,7 @@ We really look forward to your participation in getting this event store product
 
 _Notes:_
 
-1.	There’s another implementation based on SQL server. It is meant for running the sample app locally and it’s not ready for production. Nor is it in our scope to make it production-ready. So, when prioritizing where to direct your effort, please choose the Azure table-based implementation.
-2.	This is currently not intended to be a general-purpose, pluggable component. We’ve designed and developed it to fit with our sample application.
+1.	This is currently not intended to be a general-purpose, pluggable component. We’ve designed and developed it to fit with our sample application.
+
+2.	There’s another implementation based on SQL server. It is meant for running the sample app locally and it’s not ready for production. Nor is it in our scope to make it production-ready. So, when prioritizing where to direct your effort, please choose the Azure table-based implementation.
+
