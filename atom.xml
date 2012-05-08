@@ -4,7 +4,7 @@
   <title>Project &#8220;a CQRS Journey&#8221;</title>
   <link href="http://cqrsjourney.github.com/atom.xml" rel="self"/>
   <link href="http://cqrsjourney.github.com/"/>
-  <updated>2012-05-08T11:42:19-07:00</updated>
+  <updated>2012-05-08T11:44:14-07:00</updated>
   <id>http://cqrsjourney.github.com/</id>
   <author>
     <name>Microsoft patterns &amp; practices</name>
@@ -52,7 +52,7 @@ To help you get started with building/deploying/running the V1 release code see 
 
 &lt;p&gt;Note: You can also run a copy of the application locally without using Windows Azure or Windows Azure Service Bus as described in the &lt;a href=&quot;https://github.com/mspnp/cqrs-journey-doc/blob/master/Appendix1_Running.markdown&quot;&gt;release notes&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;We would appreciate your feedback on both the code and the written guidance. You can submit your reviews either via GitHub (comments, pull requests, issues) or via our &lt;a href=&quot;http://pundit.cloudapp.net&quot;&gt;lightweight review system&lt;/a&gt;.,&lt;/p&gt;
+&lt;p&gt;We would appreciate your feedback on both the code and the written guidance. You can submit your reviews either via GitHub (comments, pull requests, issues) or via our &lt;a href=&quot;http://pundit.cloudapp.net&quot;&gt;lightweight review system&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;If you&amp;#8217;d like to participate in this sample system evolution and work on any improvements of the existing bounded contexts or new ones, check out &lt;a href=&quot;https://github.com/mspnp/cqrs-journey-code/issues&quot;&gt;our backlog&lt;/a&gt;. We&amp;#8217;ll be happy to see your pull requests!&lt;/p&gt;
 </content>
