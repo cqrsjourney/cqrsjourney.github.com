@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Long-lived Line-of-Business apps - Project "a CQRS Journey"</title>
+  <title>Announcing V1 Pseudo-Production Release - Project "a CQRS Journey"</title>
   <meta name="author" content="Microsoft patterns &amp; practices">
 
   
-  <meta name="description" content="        Long-lived Line-of-Business Apps      Oct 11th, 2011      You are a developer building web apps for internal use at a large corporation. Yo...">
+  <meta name="description" content="As part of our CQRS Journey we plan to have several pseudo-production releases of the Contoso Conference Management System so that we can explore t...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://cqrsjourney.github.com/scenarios/line-of-business.html">
+  <link rel="canonical" href="http://cqrsjourney.github.com/blog/2012/05/08/Announcing-V1-Pseudo-Production-Release/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -70,11 +70,15 @@ $.domReady(function() {
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Long-lived Line-of-Business Apps</h1>
-    <p class="meta">
+    
+      <h1 class="entry-title">Announcing V1 Pseudo-Production Release</h1>
+    
+    
+      <p class="meta">
+        
 
 
 
@@ -84,58 +88,94 @@ $.domReady(function() {
 
 
 
-<time datetime="2011-10-11T11:17:00-07:00" pubdate  data-updated="true" >Oct 11<span>th</span>, 2011</time></p>
+<time datetime="2012-05-08T11:45:00-07:00" pubdate  data-updated="true" >May 8<span>th</span>, 2012</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
   </header>
-  
-  <p>You are a developer building web apps for internal use at a large corporation. You are tasked with building a line-of-business application that will allow sales people in the field to monitor the stock levels in the various distribution centers in real-time. In addition, employees at the distribution centers will be walking the warehouse floor entering data about stock levels. Both sets of employees will be working with hand-held devices. High level considerations for your project are:</p>
+
+
+<div class="entry-content"><p>As part of our CQRS Journey we plan to have <a href="http://cqrsjourney.github.com/blog/2012/04/12/Road-to-V1/">several pseudo-production releases</a> of the Contoso Conference Management System so that we can explore the real-world issues of data-versioning and software updates in an application that implements the CQRS pattern in several bounded contexts. Over the next few weeks we plan more pseudo-production releases and as we go through them we will be describing our experiences in the guidance documentation.</p>
+
+<p>Today we are releasing the first of these pseudo-production releases: Contoso Conference Management System (V1).</p>
+
+<p><img class="left" src="/images/posts/cqrsjourney-conference-v1.png"></p>
+
+<p>The current release consists of three bounded contexts:</p>
 
 <ul>
-<li>The information is sensitive and security is a primary concern.</li>
-<li>The application needs to support a number of functions while disconnected.</li>
-<li>Employees in the distribution centers can only use the app when on the local intranet.</li>
-<li>The application only needs to be supported on a limited set of devices.</li>
-<li>The application needs runs for extended periods; that is 8 or more hours at time.</li>
+<li><em>Conference Management</em> (implemented using a traditional CRUD-style architecture).</li>
+<li><em>Orders and Registrations</em> (implementing the CQRS pattern and using event sourcing).</li>
+<li><em>Payments</em> (implementing the CQRS pattern and using a SQL-based storage).</li>
 </ul>
 
 
-<div class="voting-panel">
-What do you think?
-Click <strong>Like</strong> <a href="#disqus_thread">below</a> to vote this scenario up. (Or you can click the other button&#8230;)
+<p>Keep in mind, while based on the real-world requirements, it is still a <u>sample</u> application. It doesn’t include the following:</p>
+
+<ul>
+<li>Authorization (on the backlog for V2).</li>
+<li>Styling for the conference management web site (on the backlog for V2).</li>
+<li>Integration with a real third-party  payment processor (out of scope for the guidance project; we&#8217;ll keep the simulated one).</li>
+<li>Conference details (description, speakers, tracks, sessions, etc.) - you will see static data in the registration hub for now.</li>
+<li>Perf testing (on the backlog for V3).</li>
+</ul>
+
+
+<p>If you would like to explore the code in the V1 release, you can <strong>download it from GitHub <a href="https://github.com/mspnp/cqrs-journey-code/tree/V1-pseudo-prod">here</a></strong>.
+To help you get started with building/deploying/running the V1 release code see the release notes <a href="https://github.com/mspnp/cqrs-journey-doc/blob/master/Appendix1_Running.markdown">here</a>.</p>
+
+<p>The current release uses the Windows Azure Service Bus to provide its messaging infrastructure and can be deployed to Windows Azure. You can access a deployed version of the application as a <a href="http://cqrsjourney-conference.cloudapp.net">Registrant</a> and as a <a href="http://cqrsjourney-conference.cloudapp.net:8080">Business Customer</a>. Please feel free to use the application and to generate some sample data for us so that we can migrate it for our V2 release.</p>
+
+<p>Note: You can also run a copy of the application locally without using Windows Azure or Windows Azure Service Bus as described in the <a href="https://github.com/mspnp/cqrs-journey-doc/blob/master/Appendix1_Running.markdown">release notes</a>.</p>
+
+<p>We would appreciate your feedback on both the code and the written guidance. You can submit your reviews either via GitHub (comments, pull requests, issues) or via our <a href="http://pundit.cloudapp.net">lightweight review system</a>.,</p>
+
+<p>If you&#8217;d like to participate in this sample system evolution and work on any improvements of the existing bounded contexts or new ones, check out <a href="https://github.com/mspnp/cqrs-journey-code/issues">our backlog</a>. We&#8217;ll be happy to see your pull requests!</p>
 </div>
 
 
-<p><a rel="home" href="/scenarios/index.html">Index</a></p>
-
-  
-    <footer>
-      <p class="meta">
-        
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2011-10-11T11:17:00-07:00" pubdate  data-updated="true" >Oct 11<span>th</span>, 2011</time>
-        
-      </p>
+  <footer>
+    <p class="meta">
       
-        <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://cqrsjourney.github.com/scenarios/line-of-business.html" data-via="mspnp" data-counturl="http://cqrsjourney.github.com/scenarios/line-of-business.html" >Tweet</a>
+
+<span class="byline author vcard">Posted by <span class="fn">Microsoft patterns &amp; practices</span></span>
+
+      
+
+
+
+
+
+  
+
+
+
+<time datetime="2012-05-08T11:45:00-07:00" pubdate  data-updated="true" >May 8<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/release/'>release</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://cqrsjourney.github.com/blog/2012/05/08/Announcing-V1-Pseudo-Production-Release/" data-via="mspnp" data-counturl="http://cqrsjourney.github.com/blog/2012/05/08/Announcing-V1-Pseudo-Production-Release/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
   
 </div>
 
-      
-    </footer>
-  
+    
+  </footer>
 </article>
 
   <section>
@@ -248,8 +288,8 @@ Click <strong>Like</strong> <a href="#disqus_thread">below</a> to vote this scen
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://cqrsjourney.github.com/scenarios/line-of-business.html';
-        var disqus_url = 'http://cqrsjourney.github.com/scenarios/line-of-business.html';
+        var disqus_identifier = 'http://cqrsjourney.github.com/blog/2012/05/08/Announcing-V1-Pseudo-Production-Release/';
+        var disqus_url = 'http://cqrsjourney.github.com/blog/2012/05/08/Announcing-V1-Pseudo-Production-Release/';
         var disqus_script = 'embed.js'
       
 
