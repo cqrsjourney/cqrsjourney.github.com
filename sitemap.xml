@@ -54,11 +54,11 @@
     </url>
     <url>
         <loc>http://cqrsjourney.github.com/contributors/</loc>
-        <lastmod>2012-05-08T12:02:47-07:00</lastmod>
+        <lastmod>2012-05-14T16:50:33-07:00</lastmod>
     </url>
     <url>
         <loc>http://cqrsjourney.github.com/contributors/members/</loc>
-        <lastmod>2012-05-08T12:02:47-07:00</lastmod>
+        <lastmod>2012-05-14T16:44:23-07:00</lastmod>
     </url>
     <url>
         <loc>http://cqrsjourney.github.com/</loc>
@@ -91,5 +91,9 @@
     <url>
         <loc>http://cqrsjourney.github.com/team/</loc>
         <lastmod>2012-05-08T12:02:47-07:00</lastmod>
+    </url>
+    <url>
+        <loc>http://cqrsjourney.github.com/videos/</loc>
+        <lastmod>2012-05-14T16:05:36-07:00</lastmod>
     </url>
 </urlset>
