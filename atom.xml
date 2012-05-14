@@ -4,7 +4,7 @@
   <title>Project &#8220;a CQRS Journey&#8221;</title>
   <link href="http://cqrsjourney.github.com/atom.xml" rel="self"/>
   <link href="http://cqrsjourney.github.com/"/>
-  <updated>2012-05-08T11:44:14-07:00</updated>
+  <updated>2012-05-14T13:33:10-07:00</updated>
   <id>http://cqrsjourney.github.com/</id>
   <author>
     <name>Microsoft patterns &amp; practices</name>
@@ -15,10 +15,75 @@
 
   
   <entry>
+    <title>Specing out end-to-end scenarios</title>
+    <link href="http://cqrsjourney.github.com/blog/2012/05/14/Specing-Out-End-To-End-Scenarios/"/>
+    <updated>2012-05-14T11:18:00-07:00</updated>
+    <id>http://cqrsjourney.github.com/blog/2012/05/14/Specing-Out-End-To-End-Scenarios</id>
+    <content type="html">&lt;h2&gt;From mockups to features&lt;/h2&gt;
+
+&lt;p&gt;To spec out the scenarios for our &lt;a href=&quot;http://cqrsjourney.github.com/blog/2012/03/30/Sample-Application-Overview&quot;&gt;conference management system&lt;/a&gt;, we’ve started with conversations with the domain experts. We’ve envisioned the user interactions with the system and captured them in mockups, like the one below:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://cqrsjourney.github.com/images/posts/Mockup-conf-mgmt.png&quot; alt=&quot;Conference management mockup&quot; border=&quot;0&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Mockups helped us in many ways:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Explaining our ideas in terms of UI interactions to the graphic designers.&lt;/li&gt;
+&lt;li&gt;Having discussions with the developers in terms of desired functionality.&lt;/li&gt;
+&lt;li&gt;Establishing, discussing and refining terms from our &lt;a href=&quot;https://github.com/mspnp/cqrs-journey-wiki/wiki/Ubiquitous-language&quot;&gt;ubiquitous language&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Evolving our understanding of stories via “what if” scenarios rooted in the mockups.&lt;/li&gt;
+&lt;li&gt;Becoming a foundation for the future formulation of the acceptance tests.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;Based on these we’ve proceeded to develop acceptance tests using &lt;a href=&quot;http://www.specflow.org/&quot;&gt;SpecFlow&lt;/a&gt;. SpecFlow provides an integrated experience for writing and executing tests in the BDD (&lt;a href=&quot;http://en.wikipedia.org/wiki/Behavior_Driven_Development&quot;&gt;Behavior-Driven Development&lt;/a&gt;) style within Visual Studio. The resulting tests helped us capture, distill and refine the requirements in an unambiguous way. Here’s an example of a SpecFlow acceptance test (Feature):&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://cqrsjourney.github.com/images/posts/Feature-conf-mgmt.png&quot; alt=&quot;Conference management Feature sample in SpecFlow&quot; border=&quot;0&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The initial step was to write the project specifications as Feature files using the &lt;a href=&quot;ttp://en.wikipedia.org/wiki/Behavior_Driven_Development#Application_examples_in_the_Gherkin_language&quot;&gt;Gherkin&lt;/a&gt; language syntax. They served well for the purpose of evolving and discussing the stories among developers and domain experts. However in that form, they could not be executed. So, from the testing perspective they would need to be executed manually if we wanted to verify whether the implemented functionality has, in fact, met our expectations.&lt;/p&gt;
+
+&lt;h2&gt;From features to executable specs&lt;/h2&gt;
+
+&lt;p&gt;Later on, we added the underlying plumbing to make sure that those features/acceptance tests can actually execute against our system-under-test.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://cqrsjourney.github.com/images/posts/Executable-specs-test-run.jpg&quot; alt=&quot;Executable spec test run&quot; border=&quot;0&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We used two different approaches, both of which are valuable.&lt;/p&gt;
+
+&lt;p&gt;Because our application is a web application, for testing directly via the UI, we used &lt;a href=&quot;http://watin.sourceforge.net&quot;&gt;WatiN&lt;/a&gt;, an open source library for automating Web browser testing. These tests help us gain confidence that the key end-to-end happy paths through the system work. They are fragile, however and require substantial maintenance effort.&lt;/p&gt;
+
+&lt;p&gt;Another approach for sub-scenarios is to use subcutaneous testing (or testing just beneath the UI) by directly calling the controllers (i.e. &lt;em&gt;Features\Registration\All Features end to end\SelfRegistrationEndToEndWithInfrastructure.feature&lt;/em&gt;). This way we avoid coupling with the UI but
+it may appear to be more complex since it requires some internal knowledge of how the system is implemented. With time, however, it became much easier to use this approach and we were able to reuse a lot of infrastructure as well as internal reuse of the parts of the test actions (these are actually called Step Definitions in SpecFlow).&lt;/p&gt;
+
+&lt;h2&gt;From executable specs to exploratory testing&lt;/h2&gt;
+
+&lt;p&gt;Of course, having the executable specs in place by no means preclude other types of testing. We recognize that good end-to-end acceptance testing requires breadth, depth, variability of actions and data, and rich scenarios, both plausible and implausible. While we value test automation for some of the scenarios, we also have professional testers on our team who are performing exploratory testing, performance testing, content testing etc. They too use the executable specs in their arsenal of tools and artefacts. The executable specs inform them of the goals of the system and some concrete scenarios.&lt;/p&gt;
+
+&lt;h2&gt;Finding your way around&lt;/h2&gt;
+
+&lt;p&gt;The SpecFlow Feature files with the business specifications were structured in the following way. All the end-to-end scenarios were grouped in a subfolder similar to &lt;em&gt;&amp;#8220;Features\Registration\All Features end to end”&lt;/em&gt; so that we could provide a quick overview of the epic (Registration in this case) and two basic reconnaissance paths through the system: one happy path and one sad (failure) path.&lt;/p&gt;
+
+&lt;p&gt;Then, in separate folders we grouped the variations of each scenario within the same epic – for example &lt;em&gt;“Features\Registration\Individual Reservation”&lt;/em&gt; exercises logic for scenarios specifically for individual reservations with various seat type selections. This way we can easily separate the full end-to-end acceptance tests from more fine-grained integration tests with various permutations for each underlying scenario.&lt;/p&gt;
+
+&lt;p&gt;Regarding the implementation details, there are some general support classes that provide many shared infrastructure functions used in most of the preconditions and assertions throughout the &lt;a href=&quot;https://github.com/techtalk/SpecFlow/wiki/Step-Definitions&quot;&gt;Step Definitions&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;As a test runner we used &lt;a href=&quot;http://xunit.codeplex.com&quot;&gt;xUnit.net&lt;/a&gt; underneath, which is supported by SpecFlow and integrates nicely with some well-known external tools like ReSharper, CodeRush, and TestDriven.NET.&lt;/p&gt;
+
+&lt;h2&gt;Getting involved&lt;/h2&gt;
+
+&lt;p&gt;One of the ways that you can get involved with us is to review and refine the existing acceptance tests or contribute new tests for existing scenarios or even planned (and not yet implemented) scenarios.&lt;/p&gt;
+
+&lt;h2&gt;Final note&lt;/h2&gt;
+
+&lt;p&gt;SpecFlow is just one tool in our testing armory. It is particularly useful as a way to help capture requirements from our Domain Experts in addition to verifying the behavior of the system.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
     <title>Announcing V1 Pseudo-Production Release</title>
-    <link href="http://cqrsjourney.github.com/blog/2012/05/08/Announcing-V1-Pseudo-Production-Release/"/>
+    <link href="http://cqrsjourney.github.com/blog/2012/05/08/Announcing-V1-Pseudo-Production-Release+-+Copy/"/>
     <updated>2012-05-08T11:45:00-07:00</updated>
-    <id>http://cqrsjourney.github.com/blog/2012/05/08/Announcing-V1-Pseudo-Production-Release</id>
+    <id>http://cqrsjourney.github.com/blog/2012/05/08/Announcing-V1-Pseudo-Production-Release - Copy</id>
     <content type="html">&lt;p&gt;As part of our CQRS Journey we plan to have &lt;a href=&quot;http://cqrsjourney.github.com/blog/2012/04/12/Road-to-V1/&quot;&gt;several pseudo-production releases&lt;/a&gt; of the Contoso Conference Management System so that we can explore the real-world issues of data-versioning and software updates in an application that implements the CQRS pattern in several bounded contexts. Over the next few weeks we plan more pseudo-production releases and as we go through them we will be describing our experiences in the guidance documentation.&lt;/p&gt;
 
 &lt;p&gt;Today we are releasing the first of these pseudo-production releases: Contoso Conference Management System (V1).&lt;/p&gt;

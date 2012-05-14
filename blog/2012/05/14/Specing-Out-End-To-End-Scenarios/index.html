@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Sample Application Overview - Project "a CQRS Journey"</title>
+  <title>Specing out end-to-end scenarios - Project "a CQRS Journey"</title>
   <meta name="author" content="Microsoft patterns &amp; practices">
 
   
-  <meta name="description" content="Contoso Conference Management SystemThis post summarizes the key features and functionality of the proposed Contoso Conference Management System th...">
+  <meta name="description" content="From mockups to featuresTo spec out the scenarios for our conference management system, we’ve started with conversations with the domain experts....">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://cqrsjourney.github.com/blog/2012/03/30/Sample-Application-Overview/">
+  <link rel="canonical" href="http://cqrsjourney.github.com/blog/2012/05/14/Specing-Out-End-To-End-Scenarios/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -74,7 +74,7 @@ $.domReady(function() {
   
   <header>
     
-      <h1 class="entry-title">Sample Application Overview</h1>
+      <h1 class="entry-title">Specing Out End-to-end Scenarios</h1>
     
     
       <p class="meta">
@@ -88,7 +88,7 @@ $.domReady(function() {
 
 
 
-<time datetime="2012-03-30T10:15:00-07:00" pubdate  data-updated="true" >Mar 30<span>th</span>, 2012</time>
+<time datetime="2012-05-14T11:18:00-07:00" pubdate  data-updated="true" >May 14<span>th</span>, 2012</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -97,93 +97,63 @@ $.domReady(function() {
   </header>
 
 
-<div class="entry-content"><h2>Contoso Conference Management System</h2>
+<div class="entry-content"><h2>From mockups to features</h2>
 
-<p>This post summarizes the key features and functionality of the proposed Contoso Conference Management System that we are builing in our CQRS Journey projects.
-You can read our motivation for choosing this domain <a href="http://blogs.msdn.com/b/agile/archive/2012/01/24/picking-a-domain-for-cqrs-journey-ri.aspx">here</a> and <a href="https://github.com/mspnp/cqrs-journey-doc/blob/master/Journey_00_Preface.markdown">here</a>.</p>
+<p>To spec out the scenarios for our <a href="http://cqrsjourney.github.com/blog/2012/03/30/Sample-Application-Overview">conference management system</a>, we’ve started with conversations with the domain experts. We’ve envisioned the user interactions with the system and captured them in mockups, like the one below:</p>
 
-<h2>Introduction</h2>
+<p><img src="/images/posts/Mockup-conf-mgmt.png" alt="Conference management mockup" border="0" /></p>
 
-<p>Contoso plans to build an online conference management system that will enable Contoso&#8217;s customers to plan and manage conferences that may be held at a physical location. The system will enable Contoso&#8217;s customers to:</p>
+<p>Mockups helped us in many ways:</p>
 
-<ul>
-<li>Plan the tracks, sessions, and speakers that make up a conference.</li>
-<li>Manage the calls for speakers and paper submission process.</li>
-<li>Manage registration (the sale of seats) for the conference.</li>
-<li>Manage the conference on site, including badge printing and attendee lists.</li>
-</ul>
-
-
-<p>The following sections describe these functions in more detail.</p>
-
-<h2>Overview</h2>
-
-<p>The Conference Management System will be a multi-tennant, cloud-hosted application. Business customers will need to register with the system before they can create and manage their conferences.</p>
-
-<h2>Conference Planning</h2>
-
-<p>When a business customer creates a new conference, he must first define some characteristics of the conference such as:</p>
-
-<ul>
-<li>Will the paper submission process require reviewers.</li>
-<li>What will be the fee structure for paying Contoso.</li>
-<li>Assigning key personnel such as the Program Chair and the Event Planner.</li>
-</ul>
+<ol>
+<li>Explaining our ideas in terms of UI interactions to the graphic designers.</li>
+<li>Having discussions with the developers in terms of desired functionality.</li>
+<li>Establishing, discussing and refining terms from our <a href="https://github.com/mspnp/cqrs-journey-wiki/wiki/Ubiquitous-language">ubiquitous language</a>.</li>
+<li>Evolving our understanding of stories via “what if” scenarios rooted in the mockups.</li>
+<li>Becoming a foundation for the future formulation of the acceptance tests.</li>
+</ol>
 
 
-<h2>Building a Program</h2>
+<p>Based on these we’ve proceeded to develop acceptance tests using <a href="http://www.specflow.org/">SpecFlow</a>. SpecFlow provides an integrated experience for writing and executing tests in the BDD (<a href="http://en.wikipedia.org/wiki/Behavior_Driven_Development">Behavior-Driven Development</a>) style within Visual Studio. The resulting tests helped us capture, distill and refine the requirements in an unambiguous way. Here’s an example of a SpecFlow acceptance test (Feature):</p>
 
-<p>The business customer must define the conference program. For a simple conference this may be defined directly. For a more complex conference this may involve several steps:</p>
+<p><img src="/images/posts/Feature-conf-mgmt.png" alt="Conference management Feature sample in SpecFlow" border="0" /></p>
 
-<ul>
-<li>Identifying Tracks and Track Chairs.</li>
-<li>Identifying Reviewers.</li>
-<li>Making calls for submissions.</li>
-<li>Reviewing the papers and assigning speakers to sessions.</li>
-<li>Finalizing Track programs.</li>
-</ul>
+<p>The initial step was to write the project specifications as Feature files using the <a href="ttp://en.wikipedia.org/wiki/Behavior_Driven_Development#Application_examples_in_the_Gherkin_language">Gherkin</a> language syntax. They served well for the purpose of evolving and discussing the stories among developers and domain experts. However in that form, they could not be executed. So, from the testing perspective they would need to be executed manually if we wanted to verify whether the implemented functionality has, in fact, met our expectations.</p>
 
+<h2>From features to executable specs</h2>
 
-<h2>Selling Seats</h2>
+<p>Later on, we added the underlying plumbing to make sure that those features/acceptance tests can actually execute against our system-under-test.</p>
 
-<p>The business customer will define how many seats are available for the conference and also for any events that are part of the conference that only limited numbers may attend.</p>
+<p><img src="/images/posts/Executable-specs-test-run.jpg" alt="Executable spec test run" border="0" /></p>
 
-<p>The system must manage the sale of seats to ensure that the conference and sub-events are not over subscribed. This part of the system will also operate wait-lists so that if cancellations are made, then the seats can be re-allocated.</p>
+<p>We used two different approaches, both of which are valuable.</p>
 
-<p>The system will require that the names of the attendees are associated with the purchased seats so that badges can be printed.</p>
+<p>Because our application is a web application, for testing directly via the UI, we used <a href="http://watin.sourceforge.net">WatiN</a>, an open source library for automating Web browser testing. These tests help us gain confidence that the key end-to-end happy paths through the system work. They are fragile, however and require substantial maintenance effort.</p>
 
-<h2>On-site Management</h2>
+<p>Another approach for sub-scenarios is to use subcutaneous testing (or testing just beneath the UI) by directly calling the controllers (i.e. <em>Features\Registration\All Features end to end\SelfRegistrationEndToEndWithInfrastructure.feature</em>). This way we avoid coupling with the UI but
+it may appear to be more complex since it requires some internal knowledge of how the system is implemented. With time, however, it became much easier to use this approach and we were able to reuse a lot of infrastructure as well as internal reuse of the parts of the test actions (these are actually called Step Definitions in SpecFlow).</p>
 
-<p>When attendees arrive at the conference they should be registered against an attendee list, given badges, and given the opportunity to purchase additional seats for any extra events they would like to attend. The system that runs on-site at the conference should not assume that it is permanently connected to the main conference management system.</p>
+<h2>From executable specs to exploratory testing</h2>
 
-<h2>Additional Features</h2>
+<p>Of course, having the executable specs in place by no means preclude other types of testing. We recognize that good end-to-end acceptance testing requires breadth, depth, variability of actions and data, and rich scenarios, both plausible and implausible. While we value test automation for some of the scenarios, we also have professional testers on our team who are performing exploratory testing, performance testing, content testing etc. They too use the executable specs in their arsenal of tools and artefacts. The executable specs inform them of the goals of the system and some concrete scenarios.</p>
 
-<p>Contoso plans to roll out additional features as and when resources are available. These include:</p>
+<h2>Finding your way around</h2>
 
-<ul>
-<li>Support for Event Planners to manage equipment, signage, etc.</li>
-<li>Tracking attendees at sessions via a barcode on the badge.</li>
-<li>Score submissions for session feedback.</li>
-<li>Live feed of session scores to track the best sessions.</li>
-<li>Reporting feeback to speakers.</li>
-<li>Archiving conference materials.</li>
-<li>Publishing proceedings.</li>
-</ul>
+<p>The SpecFlow Feature files with the business specifications were structured in the following way. All the end-to-end scenarios were grouped in a subfolder similar to <em>&#8220;Features\Registration\All Features end to end”</em> so that we could provide a quick overview of the epic (Registration in this case) and two basic reconnaissance paths through the system: one happy path and one sad (failure) path.</p>
 
+<p>Then, in separate folders we grouped the variations of each scenario within the same epic – for example <em>“Features\Registration\Individual Reservation”</em> exercises logic for scenarios specifically for individual reservations with various seat type selections. This way we can easily separate the full end-to-end acceptance tests from more fine-grained integration tests with various permutations for each underlying scenario.</p>
 
-<h2>Ubiquitous language</h2>
+<p>Regarding the implementation details, there are some general support classes that provide many shared infrastructure functions used in most of the preconditions and assertions throughout the <a href="https://github.com/techtalk/SpecFlow/wiki/Step-Definitions">Step Definitions</a>.</p>
 
-<p><a href="https://github.com/mspnp/cqrs-journey-wiki/wiki/Ubiquitous-language">Here</a> are the working definitions for the terms in our ubiquitous language for the Conference Managament System sample we are building. We will be adding to and modifying this list as the project proceeds&#8230;</p>
+<p>As a test runner we used <a href="http://xunit.codeplex.com">xUnit.net</a> underneath, which is supported by SpecFlow and integrates nicely with some well-known external tools like ReSharper, CodeRush, and TestDriven.NET.</p>
 
-<h2>More info</h2>
+<h2>Getting involved</h2>
 
-<p>Follow our progress in these 2 repos (you can set the watchers):</p>
+<p>One of the ways that you can get involved with us is to review and refine the existing acceptance tests or contribute new tests for existing scenarios or even planned (and not yet implemented) scenarios.</p>
 
-<ul>
-<li><a href="https://github.com/mspnp/cqrs-journey-doc">https://github.com/mspnp/cqrs-journey-doc</a></li>
-<li><a href="https://github.com/mspnp/cqrs-journey-code">https://github.com/mspnp/cqrs-journey-code</a></li>
-</ul>
+<h2>Final note</h2>
 
+<p>SpecFlow is just one tool in our testing armory. It is particularly useful as a way to help capture requirements from our Domain Experts in addition to verifying the behavior of the system.</p>
 </div>
 
 
@@ -204,12 +174,12 @@ You can read our motivation for choosing this domain <a href="http://blogs.msdn.
 
 
 
-<time datetime="2012-03-30T10:15:00-07:00" pubdate  data-updated="true" >Mar 30<span>th</span>, 2012</time>
+<time datetime="2012-05-14T11:18:00-07:00" pubdate  data-updated="true" >May 14<span>th</span>, 2012</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/journey/'>Journey</a>, <a class='category' href='/blog/categories/ri/'>RI</a>
+    <a class='category' href='/blog/categories/specflow/'>SpecFlow</a>, <a class='category' href='/blog/categories/acceptance-tests/'>acceptance tests</a>, <a class='category' href='/blog/categories/requirements/'>requirements</a>
   
 </span>
 
@@ -218,7 +188,7 @@ You can read our motivation for choosing this domain <a href="http://blogs.msdn.
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://cqrsjourney.github.com/blog/2012/03/30/Sample-Application-Overview/" data-via="mspnp" data-counturl="http://cqrsjourney.github.com/blog/2012/03/30/Sample-Application-Overview/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://cqrsjourney.github.com/blog/2012/05/14/Specing-Out-End-To-End-Scenarios/" data-via="mspnp" data-counturl="http://cqrsjourney.github.com/blog/2012/05/14/Specing-Out-End-To-End-Scenarios/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -339,8 +309,8 @@ You can read our motivation for choosing this domain <a href="http://blogs.msdn.
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://cqrsjourney.github.com/blog/2012/03/30/Sample-Application-Overview/';
-        var disqus_url = 'http://cqrsjourney.github.com/blog/2012/03/30/Sample-Application-Overview/';
+        var disqus_identifier = 'http://cqrsjourney.github.com/blog/2012/05/14/Specing-Out-End-To-End-Scenarios/';
+        var disqus_url = 'http://cqrsjourney.github.com/blog/2012/05/14/Specing-Out-End-To-End-Scenarios/';
         var disqus_script = 'embed.js'
       
 
