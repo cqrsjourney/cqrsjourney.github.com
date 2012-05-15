@@ -4,7 +4,7 @@
   <title>Project &#8220;a CQRS Journey&#8221;</title>
   <link href="http://cqrsjourney.github.com/atom.xml" rel="self"/>
   <link href="http://cqrsjourney.github.com/"/>
-  <updated>2012-05-14T16:50:34-07:00</updated>
+  <updated>2012-05-15T08:32:06-07:00</updated>
   <id>http://cqrsjourney.github.com/</id>
   <author>
     <name>Microsoft patterns &amp; practices</name>
@@ -13,6 +13,44 @@
     
   </author>
 
+  
+  <entry>
+    <title>Plans for V2</title>
+    <link href="http://cqrsjourney.github.com/blog/2012/05/15/Plan-for-V2/"/>
+    <updated>2012-05-15T06:23:00-07:00</updated>
+    <id>http://cqrsjourney.github.com/blog/2012/05/15/Plan-for-V2</id>
+    <content type="html">&lt;blockquote&gt;&lt;p&gt;Variety is the very spice of life&lt;br/&gt;
+&lt;em&gt;- William Cowper, Olney Hymns (1779)&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;Following on from our &lt;a href=&quot;http://bit.ly/cqrs-v1&quot;&gt;V1&lt;/a&gt; release of the Contoso Conference Management System we are already well on the way toward our second pseudo-production release. This will be our first experience of handling data-versioning and software updates in an application that implements the CQRS pattern and that uses event sourcing. We plan, if possible, to be able to perform a no-downtime migration; if this proves not to be possible, we&amp;#8217;ll make whatever changes are necessary to make sure that we can perform the V3 migration with no-downtime.&lt;/p&gt;
+
+&lt;p&gt;We have three major user stories on our backlog for this release:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Providing a better user experience for &lt;strong&gt;zero-cost orders&lt;/strong&gt; (at present the registrant is still taken to the payments system even if there&amp;#8217;s nothing to pay). This will involve changes to our registration workflow process, adding some new events, and removing some events that are no longer needed. The Orders and Registrations bounded context uses event sourcing, so the system will need to work with both the old events (that are still in the event store) and the new events when the the new version of the workflow process is introduced.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Displaying the number of &lt;strong&gt;remaining seats of each seat type in the UI&lt;/strong&gt;. This will require a new read-model that will need to be seeded with the correct starting values. This is because in the V1 release the Orders and Registrations bounded context was not receiving and storing the information it needs to calculate these values.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Adding support for &lt;strong&gt;discounts&lt;/strong&gt; for seat prices through the use of promotional codes that the registrant can add during the ordering process. This introduces a brand-new bounded context implemented by a different team (&lt;a href=&quot;http://dymitruk.com/&quot;&gt;Adam Dymitruk&lt;/a&gt;, one of our advisors), that needs to be integrated with the existing bounded contexts. This will also result in further changes to the registration workflow process.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;There are also several changes that will take place behind the scenes, some of which are related to the user stories described above:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Modifying the application to accommodate changes to the set of events used in different versions of the system.&lt;/li&gt;
+&lt;li&gt;Improving the robustness of the system by ensuring that commands are always idempotent.&lt;/li&gt;
+&lt;li&gt;Improving the robustness of the system by ensuring that, where required, messages are always delivered in order.&lt;/li&gt;
+&lt;li&gt;Reevaluating our strategy for persisting integration events.&lt;/li&gt;
+&lt;li&gt;Evaluating some options for optimizing the command handling within the system.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;We plan to have V2 ready shortly to give us time to complete V3 before the end of the project.&lt;/p&gt;
+
+&lt;p&gt;You can track our progress against the &lt;a href=&quot;https://github.com/mspnp/cqrs-journey-code/issues?milestone=5&quot;&gt;V2 milestone&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Feel free to provide feedback on code/guidance and &lt;a href=&quot;http://cqrsjourney.github.com/contributors/&quot;&gt;contribute&lt;/a&gt;.&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
     <title>Specing out end-to-end scenarios</title>

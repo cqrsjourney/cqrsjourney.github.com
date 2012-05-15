@@ -9,7 +9,7 @@
   <meta name="author" content="Microsoft patterns &amp; practices">
 
   
-  <meta name="description" content="From mockups to featuresTo spec out the scenarios for our conference management system, we’ve started with conversations with the domain experts....">
+  <meta name="description" content="Variety is the very spice of life- William Cowper, Olney Hymns (1779)Following on from our V1 release of the Contoso Conference Management System w...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -74,6 +74,71 @@ $.domReady(function() {
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/15/Plan-for-V2/">Plans for V2</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2012-05-15T06:23:00-07:00" pubdate  data-updated="true" >May 15<span>th</span>, 2012</time>
+        
+         | <a href="/blog/2012/05/15/Plan-for-V2/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><blockquote><p>Variety is the very spice of life<br/>
+<em>- William Cowper, Olney Hymns (1779)</em></p></blockquote>
+
+<p>Following on from our <a href="http://bit.ly/cqrs-v1">V1</a> release of the Contoso Conference Management System we are already well on the way toward our second pseudo-production release. This will be our first experience of handling data-versioning and software updates in an application that implements the CQRS pattern and that uses event sourcing. We plan, if possible, to be able to perform a no-downtime migration; if this proves not to be possible, we&#8217;ll make whatever changes are necessary to make sure that we can perform the V3 migration with no-downtime.</p>
+
+<p>We have three major user stories on our backlog for this release:</p>
+
+<ol>
+<li><p>Providing a better user experience for <strong>zero-cost orders</strong> (at present the registrant is still taken to the payments system even if there&#8217;s nothing to pay). This will involve changes to our registration workflow process, adding some new events, and removing some events that are no longer needed. The Orders and Registrations bounded context uses event sourcing, so the system will need to work with both the old events (that are still in the event store) and the new events when the the new version of the workflow process is introduced.</p></li>
+<li><p>Displaying the number of <strong>remaining seats of each seat type in the UI</strong>. This will require a new read-model that will need to be seeded with the correct starting values. This is because in the V1 release the Orders and Registrations bounded context was not receiving and storing the information it needs to calculate these values.</p></li>
+<li><p>Adding support for <strong>discounts</strong> for seat prices through the use of promotional codes that the registrant can add during the ordering process. This introduces a brand-new bounded context implemented by a different team (<a href="http://dymitruk.com/">Adam Dymitruk</a>, one of our advisors), that needs to be integrated with the existing bounded contexts. This will also result in further changes to the registration workflow process.</p></li>
+</ol>
+
+
+<p>There are also several changes that will take place behind the scenes, some of which are related to the user stories described above:</p>
+
+<ul>
+<li>Modifying the application to accommodate changes to the set of events used in different versions of the system.</li>
+<li>Improving the robustness of the system by ensuring that commands are always idempotent.</li>
+<li>Improving the robustness of the system by ensuring that, where required, messages are always delivered in order.</li>
+<li>Reevaluating our strategy for persisting integration events.</li>
+<li>Evaluating some options for optimizing the command handling within the system.</li>
+</ul>
+
+
+<p>We plan to have V2 ready shortly to give us time to complete V3 before the end of the project.</p>
+
+<p>You can track our progress against the <a href="https://github.com/mspnp/cqrs-journey-code/issues?milestone=5">V2 milestone</a>.</p>
+
+<p>Feel free to provide feedback on code/guidance and <a href="http://cqrsjourney.github.com/contributors/">contribute</a>.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -588,6 +653,10 @@ You can read our motivation for choosing this domain <a href="http://blogs.msdn.
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/05/15/Plan-for-V2/">Plans for V2</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/05/14/Specing-Out-End-To-End-Scenarios/">Specing out end-to-end scenarios</a>
       </li>
     
@@ -601,10 +670,6 @@ You can read our motivation for choosing this domain <a href="http://blogs.msdn.
     
       <li class="post">
         <a href="/blog/2012/04/12/Road-to-V1/">The Road to V1</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/03/30/Sample-Application-Overview/">Sample Application Overview</a>
       </li>
     
   <li><a href="/blog/archives">Complete Archives</a></li>

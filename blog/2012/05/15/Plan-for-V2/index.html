@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Project "a CQRS Journey"</title>
+  <title>Plans for V2 - Project "a CQRS Journey"</title>
   <meta name="author" content="Microsoft patterns &amp; practices">
 
   
-  <meta name="description" content="    WhoThe Microsoft patterns &amp; practices team is a group of engineers (developers, testers, program managers), designers, and technical writer...">
+  <meta name="description" content="Variety is the very spice of life- William Cowper, Olney Hymns (1779)Following on from our V1 release of the Contoso Conference Management System w...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://cqrsjourney.github.com/">
+  <link rel="canonical" href="http://cqrsjourney.github.com/blog/2012/05/15/Plan-for-V2/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -73,65 +73,106 @@ $.domReady(function() {
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
-  <h2>Who</h2>
+  <header>
+    
+      <h1 class="entry-title">Plans for V2</h1>
+    
+    
+      <p class="meta">
+        
 
-<p>The <a href="http://msdn.microsoft.com/practices">Microsoft patterns &amp; practices</a> team is a group of engineers (developers, testers, program managers), designers, and technical writers who produce guidance to help the larger community build solutions. With this project, we hope to provide you with a map that will help you to find your own way with the Command and Query Responsibility Segregation (CQRS) and Event Sourcing (ES) patterns and related techniques.</p>
 
-<h2>What</h2>
 
-<p>There will be two, closely related, deliverables from this project: the source code for a complete, working reference implementation (an end-to-end sample app) that illustrates the key concepts, patterns, and approaches related to CQRS &amp; ES, and a written guide to accompany the code, provide explanations, context, and references to other relevant material.</p>
 
-<p>The reference implementation will be a conference management system that you will be able to easily deploy and run in your own environment. This will enable you to explore and experiment with a realistic application built following a CQRS-based approach.</p>
 
-<h2>Principles</h2>
+  
+
+
+
+<time datetime="2012-05-15T06:23:00-07:00" pubdate  data-updated="true" >May 15<span>th</span>, 2012</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><blockquote><p>Variety is the very spice of life<br/>
+<em>- William Cowper, Olney Hymns (1779)</em></p></blockquote>
+
+<p>Following on from our <a href="http://bit.ly/cqrs-v1">V1</a> release of the Contoso Conference Management System we are already well on the way toward our second pseudo-production release. This will be our first experience of handling data-versioning and software updates in an application that implements the CQRS pattern and that uses event sourcing. We plan, if possible, to be able to perform a no-downtime migration; if this proves not to be possible, we&#8217;ll make whatever changes are necessary to make sure that we can perform the V3 migration with no-downtime.</p>
+
+<p>We have three major user stories on our backlog for this release:</p>
+
+<ol>
+<li><p>Providing a better user experience for <strong>zero-cost orders</strong> (at present the registrant is still taken to the payments system even if there&#8217;s nothing to pay). This will involve changes to our registration workflow process, adding some new events, and removing some events that are no longer needed. The Orders and Registrations bounded context uses event sourcing, so the system will need to work with both the old events (that are still in the event store) and the new events when the the new version of the workflow process is introduced.</p></li>
+<li><p>Displaying the number of <strong>remaining seats of each seat type in the UI</strong>. This will require a new read-model that will need to be seeded with the correct starting values. This is because in the V1 release the Orders and Registrations bounded context was not receiving and storing the information it needs to calculate these values.</p></li>
+<li><p>Adding support for <strong>discounts</strong> for seat prices through the use of promotional codes that the registrant can add during the ordering process. This introduces a brand-new bounded context implemented by a different team (<a href="http://dymitruk.com/">Adam Dymitruk</a>, one of our advisors), that needs to be integrated with the existing bounded contexts. This will also result in further changes to the registration workflow process.</p></li>
+</ol>
+
+
+<p>There are also several changes that will take place behind the scenes, some of which are related to the user stories described above:</p>
 
 <ul>
-<li>This project values open, standards-based development</li>
-<li>We value the great work already available from others and intend to thank existing thought-leaders through attribution</li>
-<li>This work should happen in the open so everyone is able to follow along</li>
-<li>We would like to help foster a community of practice and build consensus within the community</li>
-<li>This project represents a conversation not a dictation</li>
-<li>We would like to meet the community where it is - using what it&#8217;s using</li>
-<li>The guidance should be based on the best thinking available but also the scenarios customers care about</li>
+<li>Modifying the application to accommodate changes to the set of events used in different versions of the system.</li>
+<li>Improving the robustness of the system by ensuring that commands are always idempotent.</li>
+<li>Improving the robustness of the system by ensuring that, where required, messages are always delivered in order.</li>
+<li>Reevaluating our strategy for persisting integration events.</li>
+<li>Evaluating some options for optimizing the command handling within the system.</li>
 </ul>
 
 
-<h2>How</h2>
+<p>We plan to have V2 ready shortly to give us time to complete V3 before the end of the project.</p>
 
-<p>We hire experts, developers, testers, and writers to augment our team of full-time employees to build these deliverables. We do so using agile/Scrum team practices that operate on fortnightly sprints. At the end of each sprint we hold calls with a <a href="/advisors">group of advisors</a> to demo the new stuff, discuss decision points, and get feedback on our direction. This feedback is crucial to our success.</p>
+<p>You can track our progress against the <a href="https://github.com/mspnp/cqrs-journey-code/issues?milestone=5">V2 milestone</a>.</p>
 
-  
-    <footer>
-      <p class="meta">
-        
-        
+<p>Feel free to provide feedback on code/guidance and <a href="http://cqrsjourney.github.com/contributors/">contribute</a>.</p>
+</div>
 
 
-
-
-
-  
-
-
-
-<time datetime="2012-02-13T20:50:00-08:00" pubdate  data-updated="true" >Feb 13<span>th</span>, 2012</time>
-        
-      </p>
+  <footer>
+    <p class="meta">
       
-        <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://cqrsjourney.github.com/index.html" data-via="mspnp" data-counturl="http://cqrsjourney.github.com/index.html" >Tweet</a>
+
+<span class="byline author vcard">Posted by <span class="fn">Microsoft patterns &amp; practices</span></span>
+
+      
+
+
+
+
+
+  
+
+
+
+<time datetime="2012-05-15T06:23:00-07:00" pubdate  data-updated="true" >May 15<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/evolution/'>Evolution</a>, <a class='category' href='/blog/categories/journey/'>Journey</a>, <a class='category' href='/blog/categories/maintenance/'>Maintenance</a>, <a class='category' href='/blog/categories/ri/'>RI</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://cqrsjourney.github.com/blog/2012/05/15/Plan-for-V2/" data-via="mspnp" data-counturl="http://cqrsjourney.github.com/blog/2012/05/15/Plan-for-V2/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
   
 </div>
 
-      
-    </footer>
-  
+    
+  </footer>
 </article>
 
   <section>
@@ -244,8 +285,8 @@ $.domReady(function() {
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://cqrsjourney.github.com/index.html';
-        var disqus_url = 'http://cqrsjourney.github.com/index.html';
+        var disqus_identifier = 'http://cqrsjourney.github.com/blog/2012/05/15/Plan-for-V2/';
+        var disqus_url = 'http://cqrsjourney.github.com/blog/2012/05/15/Plan-for-V2/';
         var disqus_script = 'embed.js'
       
 
