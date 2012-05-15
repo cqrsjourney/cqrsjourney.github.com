@@ -1,0 +1,42 @@
+---
+layout: post
+title: "Plans for V2"
+date: 2012-05-15 06:23
+comments: true
+categories: 
+- RI 
+- Journey
+- Maintenance
+- Evolution
+---
+
+> Variety is the very spice of life  
+> _- William Cowper, Olney Hymns (1779)_
+
+Following on from our [V1][v1release] release of the Contoso Conference Management System we are already well on the way toward our second pseudo-production release. This will be our first experience of handling data-versioning and software updates in an application that implements the CQRS pattern and that uses event sourcing. We plan, if possible, to be able to perform a no-downtime migration; if this proves not to be possible, we'll make whatever changes are necessary to make sure that we can perform the V3 migration with no-downtime.
+
+We have three major user stories on our backlog for this release:
+
+1. Providing a better user experience for **zero-cost orders** (at present the registrant is still taken to the payments system even if there's nothing to pay). This will involve changes to our registration workflow process, adding some new events, and removing some events that are no longer needed. The Orders and Registrations bounded context uses event sourcing, so the system will need to work with both the old events (that are still in the event store) and the new events when the the new version of the workflow process is introduced.
+
+2. Displaying the number of **remaining seats of each seat type in the UI**. This will require a new read-model that will need to be seeded with the correct starting values. This is because in the V1 release the Orders and Registrations bounded context was not receiving and storing the information it needs to calculate these values.
+
+3. Adding support for **discounts** for seat prices through the use of promotional codes that the registrant can add during the ordering process. This introduces a brand-new bounded context implemented by a different team ([Adam Dymitruk][adamd], one of our advisors), that needs to be integrated with the existing bounded contexts. This will also result in further changes to the registration workflow process.
+
+There are also several changes that will take place behind the scenes, some of which are related to the user stories described above:
+
+* Modifying the application to accommodate changes to the set of events used in different versions of the system.
+* Improving the robustness of the system by ensuring that commands are always idempotent.
+* Improving the robustness of the system by ensuring that, where required, messages are always delivered in order.
+* Reevaluating our strategy for persisting integration events.
+* Evaluating some options for optimizing the command handling within the system.
+
+We plan to have V2 ready shortly to give us time to complete V3 before the end of the project.
+
+You can track our progress against the [V2 milestone](https://github.com/mspnp/cqrs-journey-code/issues?milestone=5).
+
+Feel free to provide feedback on code/guidance and [contribute](http://cqrsjourney.github.com/contributors/).
+
+
+[v1release]:  http://bit.ly/cqrs-v1
+[adamd]:      http://dymitruk.com/

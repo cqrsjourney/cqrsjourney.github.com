@@ -17,7 +17,23 @@ The current list of contributors:
 [http://www.liquidelectron.com](http://www.liquidelectron.com)
 [@liquid_electron](http://twitter.com/#!/liquid_electron)
 
-
 ###	Mark Seemann				
 [http://blog.ploeh.dk](http://blog.ploeh.dk)
 [@ploeh](http://twitter.com/#!/ploeh)
+
+The current list of reviewers:
+
+### Christian Horsdal Gammelgaard
+[http://horsdal.blogspot.com/](http://horsdal.blogspot.com)	
+[@chr_horsdal](http://twitter.com/#!/chr_horsdal)
+
+###	Kelly Sommers				
+[http://kellabyte.com/](http://kellabyte.com/)
+[@Kellabyte](http://twitter.com/#!/Kellabyte)
+
+###	Peter Ritchie, MVP			
+[http://PeterRitchie.com/blog/](http://PeterRitchie.com/blog/)
+[@PeterRitchie](http://twitter.com/#!/PeterRitchie)
+
+
+##Thank you!
