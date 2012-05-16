@@ -23,6 +23,10 @@ The current list of contributors:
 
 The current list of reviewers:
 
+### Bill Wilder, MVP
+[http://blog.codingoutloud.com](http://blog.codingoutloud.com)	
+[@codingoutloud](http://twitter.com/#!/codingoutloud)
+
 ### Christian Horsdal Gammelgaard
 [http://horsdal.blogspot.com/](http://horsdal.blogspot.com)	
 [@chr_horsdal](http://twitter.com/#!/chr_horsdal)
