@@ -16,7 +16,7 @@ The picture below depicts a portion of our migrated read models (only some of wh
 
 The following user stories made it into the release:
 
-1. Providing a better user experience for **zero-cost orders** (at present the registrant is still taken to the payments system even if there’s nothing to pay).
+1. Providing a better user experience for **zero-cost orders** (in V1 the registrant was still taken to the payments system even if there was nothing to pay).
 
 2. Displaying the number of **remaining seats** of each seat type in the UI (since there was no read model for this in V1).
 
@@ -27,7 +27,7 @@ Unfortunately, it was not possible this time to perform a no-downtime upgrade. T
 * The fact that we weren't storing all the integration events needed in order to regenerate some read models, nor did we have an API for querying the state of the system from an external Bounded Context. So we now have a **message log** for every message that goes through the service bus. 
 * Because of this, we have also decided to migrate the event store infrastructure to account for the additional metadata that the message log requires, and we will use as the base for replaying events when regenerating read models (as the message log is much easier to query and is already sorted by time).
 
-Our migration resulted in 1 min 35 secs downtime. 
+Our migration resulted in ~6 min downtime. 
 
 Now that we have the infrastructure in place, a no-downtime upgrade seems to be an attainable goal for our V3 release.
 
@@ -47,6 +47,6 @@ You can read about the V2 release in more detail [here][journey6] and about the 
 
 
 [v2plans]:  http://cqrsjourney.github.com/blog/2012/05/15/Plan-for-V2/
-[v3milestone]: https://github.com/mspnp/cqrs-journey-code/issues?milestone=5
+[v3milestone]: https://github.com/mspnp/cqrs-journey-code/issues?milestone=6
 [journey6]: https://github.com/mspnp/cqrs-journey-doc/blob/master/Journey_06_V2Release.markdown
 [v1release]: http://cqrsjourney.github.com/blog/2012/05/08/Announcing-V1-Pseudo-Production-Release/
