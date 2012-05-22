@@ -4,7 +4,7 @@
   <title>Project &#8220;a CQRS Journey&#8221;</title>
   <link href="http://cqrsjourney.github.com/atom.xml" rel="self"/>
   <link href="http://cqrsjourney.github.com/"/>
-  <updated>2012-05-22T13:38:40-07:00</updated>
+  <updated>2012-05-22T13:47:13-07:00</updated>
   <id>http://cqrsjourney.github.com/</id>
   <author>
     <name>Microsoft patterns &amp; practices</name>
@@ -27,7 +27,7 @@
 &lt;p&gt;The following user stories made it into the release:&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Providing a better user experience for &lt;strong&gt;zero-cost orders&lt;/strong&gt; (at present the registrant is still taken to the payments system even if there’s nothing to pay).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Providing a better user experience for &lt;strong&gt;zero-cost orders&lt;/strong&gt; (in V1 the registrant was still taken to the payments system even if there was nothing to pay).&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Displaying the number of &lt;strong&gt;remaining seats&lt;/strong&gt; of each seat type in the UI (since there was no read model for this in V1).&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Applying &lt;strong&gt;UX designs&lt;/strong&gt; to the &lt;strong&gt;Conference Creation/Management BC&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
@@ -41,7 +41,7 @@
 &lt;/ul&gt;
 
 
-&lt;p&gt;Our migration resulted in 1 min 35 secs downtime.&lt;/p&gt;
+&lt;p&gt;Our migration resulted in ~6 min downtime.&lt;/p&gt;
 
 &lt;p&gt;Now that we have the infrastructure in place, a no-downtime upgrade seems to be an attainable goal for our V3 release.&lt;/p&gt;
 
@@ -58,7 +58,7 @@
 
 &lt;p&gt;&lt;a href=&quot;http://cqrsjourney-conference.cloudapp.net&quot; alt=&quot;CQRS Journey : Conference Management System&quot;&gt;&lt;img src=&quot;http://cqrsjourney.github.com/images/posts/cqrsjourney-conference-v2.png&quot; border=&quot;0&quot;/&gt;&lt;/a&gt; &amp;nbsp; &lt;a href=&quot;http://cqrsjourney-conference.cloudapp.net:8080&quot; alt=&quot;CQRS Journey : Conference Management System - Admin Portal&quot;&gt;&lt;img src=&quot;http://cqrsjourney.github.com/images/posts/cqrsjourney-confmgmt-v2.png&quot; border=&quot;0&quot;/&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;We are now starting work on V3 and you can track our progress against the &lt;a href=&quot;https://github.com/mspnp/cqrs-journey-code/issues?milestone=5&quot;&gt;V3 milestone&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We are now starting work on V3 and you can track our progress against the &lt;a href=&quot;https://github.com/mspnp/cqrs-journey-code/issues?milestone=6&quot;&gt;V3 milestone&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;You can read about the V2 release in more detail &lt;a href=&quot;https://github.com/mspnp/cqrs-journey-doc/blob/master/Journey_06_V2Release.markdown&quot;&gt;here&lt;/a&gt; and about the V1 release &lt;a href=&quot;http://cqrsjourney.github.com/blog/2012/05/08/Announcing-V1-Pseudo-Production-Release/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 </content>
