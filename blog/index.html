@@ -9,7 +9,7 @@
   <meta name="author" content="Microsoft patterns &amp; practices">
 
   
-  <meta name="description" content="Variety is the very spice of life- William Cowper, Olney Hymns (1779)Following on from our V1 release of the Contoso Conference Management System w...">
+  <meta name="description" content="This is our second pseudo-production release of the Contoso Conference Management System. The plan was to explore the migration process to understa...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -74,6 +74,83 @@ $.domReady(function() {
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/21/V2-Pseudo-Production-Release-is-out/">V2 Pseudo-Production Release Is Out</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2012-05-21T11:30:00-07:00" pubdate  data-updated="true" >May 21<span>st</span>, 2012</time>
+        
+         | <a href="/blog/2012/05/21/V2-Pseudo-Production-Release-is-out/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This is our <a href="http://cqrsjourney.github.com/blog/2012/05/15/Plan-for-V2/">second pseudo-production release</a> of the Contoso Conference Management System. The plan was to explore the <strong>migration process</strong> to understand better how this works in a CQRS/ES implementation and to see if we could perform a no-downtime upgrade with our current infrastructure.</p>
+
+<p>The picture below depicts a portion of our migrated read models (only some of which are actually in SQL Azure).<br/>
+<img src="/images/posts/cqrsjourney-conference-v2-migration.png" border="0"/></p>
+
+<p>The following user stories made it into the release:</p>
+
+<ol>
+<li><p>Providing a better user experience for <strong>zero-cost orders</strong> (at present the registrant is still taken to the payments system even if there’s nothing to pay).</p></li>
+<li><p>Displaying the number of <strong>remaining seats</strong> of each seat type in the UI (since there was no read model for this in V1).</p></li>
+<li><p>Applying <strong>UX designs</strong> to the <strong>Conference Creation/Management BC</strong>.</p></li>
+</ol>
+
+
+<p>Unfortunately, it was not possible this time to perform a no-downtime upgrade. This was due to:</p>
+
+<ul>
+<li>The fact that we weren&#8217;t storing all the integration events needed in order to regenerate some read models, nor did we have an API for querying the state of the system from an external Bounded Context. So we now have a <strong>message log</strong> for every message that goes through the service bus.</li>
+<li>Because of this, we have also decided to migrate the event store infrastructure to account for the additional metadata that the message log requires, and we will use as the base for replaying events when regenerating read models (as the message log is much easier to query and is already sorted by time).</li>
+</ul>
+
+
+<p>Our migration resulted in 1 min 35 secs downtime.</p>
+
+<p>Now that we have the infrastructure in place, a no-downtime upgrade seems to be an attainable goal for our V3 release.</p>
+
+<p>In addition to the behind-the-scenes changes listed in the previous <a href="http://cqrsjourney.github.com/blog/2012/05/15/Plan-for-V2/">post</a>, the team made the following changes:</p>
+
+<ul>
+<li>As mentioned above, there is a now a message log that persists all commands and events. This grew out of the need to persist the integration events. In addition to regenerating read models from events, this is also intended to future-proof the application by capturing everything that might be of interest at some point in the future.</li>
+<li>The Conference solution now includes a migration program to migrate the data to the new event store, re-create the integration events that the V1 release did not persist, and rebuild the read-models with additonal data.</li>
+<li>Several bug fixes (see the <a href="https://github.com/mspnp/cqrs-journey-code/issues?labels=&amp;milestone=5&amp;page=1&amp;state=closed">backlog for V2</a> or the <a href="https://github.com/mspnp/cqrs-journey-code/commits/dev">commit history</a>)</li>
+</ul>
+
+
+<p>You can access the updated version of the application as a <a href="http://cqrsjourney-conference.cloudapp.net">Registrant</a> or as a <a href="http://cqrsjourney-conference.cloudapp.net:8080">Business Customer</a>:</p>
+
+<p><a href="http://cqrsjourney-conference.cloudapp.net" alt="CQRS Journey : Conference Management System"><img src="/images/posts/cqrsjourney-conference-v2.png" border="0"/></a> &nbsp; <a href="http://cqrsjourney-conference.cloudapp.net:8080" alt="CQRS Journey : Conference Management System - Admin Portal"><img src="/images/posts/cqrsjourney-confmgmt-v2.png" border="0"/></a></p>
+
+<p>We are now starting work on V3 and you can track our progress against the <a href="https://github.com/mspnp/cqrs-journey-code/issues?milestone=5">V3 milestone</a>.</p>
+
+<p>You can read about the V2 release in more detail <a href="https://github.com/mspnp/cqrs-journey-doc/blob/master/Journey_06_V2Release.markdown">here</a> and about the V1 release <a href="http://cqrsjourney.github.com/blog/2012/05/08/Announcing-V1-Pseudo-Production-Release/">here</a>.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -653,6 +730,10 @@ You can read our motivation for choosing this domain <a href="http://blogs.msdn.
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/05/21/V2-Pseudo-Production-Release-is-out/">V2 Pseudo-Production Release is out</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/05/15/Plan-for-V2/">Plans for V2</a>
       </li>
     
@@ -666,10 +747,6 @@ You can read our motivation for choosing this domain <a href="http://blogs.msdn.
     
       <li class="post">
         <a href="/blog/2012/05/01/Open-Call-For-Enhancements-To-Event-Store/">Open Call for Enhancements to Event Store Implementation</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/04/12/Road-to-V1/">The Road to V1</a>
       </li>
     
   <li><a href="/blog/archives">Complete Archives</a></li>
