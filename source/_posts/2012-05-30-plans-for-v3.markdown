@@ -1,0 +1,41 @@
+---
+layout: post
+title: "Plans for V3"
+date: 2012-05-30 10:56
+comments: true
+categories: 
+- RI 
+- Journey
+- Maintenance
+- Evolution
+---
+
+For our third and final release of the Contoso Conference Management System in our CQRS journey, we're planning to focus on hardening and optimizing the system. We also intend this to be a no-downtime upgrade - something that we didn't achieve last time around.
+
+You can see the the announcements for the previous two releases here [V1][v1announce] and here [V2][v2announce].
+
+## Hardening the System
+
+The Orders and Registrations bounded context has contained the **RegistrationProcess** Process Manager (are what sometimes is referred as a Saga in the CQRS community) right from our V1 release. This piece of the system is responsible for coordinating the activities of the aggregates in this bounded context and the Payment bounded context by routing commands and events between them. We've always been aware that a failure here could have adverse consequences for the system, especially if the aggregates got out of sync with each other, or we ended up with zombie processes. We want to make sure that the system is robust in the face of these specific failure scenarios. 
+
+The **RegistrationProcess** should be able to recover from the following:
+
+* Crashes or is unable to access storage after receiving an event and before it sends any commands.
+* Crashes or is unable to access storage after saving its own state but before sending the commands.
+* Fails to mark an event as processed after it has finished doing all of its work.
+* Times-out because it is expecting a timely response from any of the commands it has sent, but for some reason the recipients of those commands fail to respond.
+* Receives an unexpected event (i.e. PaymentCompleted after the order has been expired).
+
+
+## Optimizing the System
+
+The optimization effort will focus around the UI flow. Currently, when a Registrant is ordering and paying for seats at a conference, the UI waits for some processing to complete in the domain (such as checking for seats availability), before displaying the next page to the Registrant. We plan to streamline this process to make the UI much more responsive, while still ensuring that a Registrant doesn't pay for seats that the system couldn't reserve (this is a strict domain constraint).
+
+You can track our progress against the [V3 milestone][v3milestone].
+
+Feel free to provide feedback on code/guidance and [contribute][contrib].
+
+[v3milestone]:   https://github.com/mspnp/cqrs-journey-code/issues?milestone=6
+[contrib]:       http://cqrsjourney.github.com/contributors/
+[v1announce]:    http://cqrsjourney.github.com/blog/2012/05/08/Announcing-V1-Pseudo-Production-Release/
+[v2announce]:    http://cqrsjourney.github.com/blog/2012/05/21/V2-Pseudo-Production-Release-is-out/
