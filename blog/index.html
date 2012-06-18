@@ -9,7 +9,7 @@
   <meta name="author" content="Microsoft patterns &amp; practices">
 
   
-  <meta name="description" content="This is our second pseudo-production release of the Contoso Conference Management System. The plan was to explore the migration process to understa...">
+  <meta name="description" content="For our third and final release of the Contoso Conference Management System in our CQRS journey, we&#8217;re planning to focus on hardening and opt...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -74,6 +74,67 @@ $.domReady(function() {
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/30/plans-for-v3/">Plans for V3</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2012-05-30T10:56:00-07:00" pubdate  data-updated="true" >May 30<span>th</span>, 2012</time>
+        
+         | <a href="/blog/2012/05/30/plans-for-v3/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>For our third and final release of the Contoso Conference Management System in our CQRS journey, we&#8217;re planning to focus on hardening and optimizing the system. We also intend this to be a no-downtime upgrade - something that we didn&#8217;t achieve last time around.</p>
+
+<p>You can see the the announcements for the previous two releases here <a href="http://cqrsjourney.github.com/blog/2012/05/08/Announcing-V1-Pseudo-Production-Release/">V1</a> and here <a href="http://cqrsjourney.github.com/blog/2012/05/21/V2-Pseudo-Production-Release-is-out/">V2</a>.</p>
+
+<h2>Hardening the System</h2>
+
+<p>The Orders and Registrations bounded context has contained the <strong>RegistrationProcess</strong> Process Manager (are what sometimes is referred as a Saga in the CQRS community) right from our V1 release. This piece of the system is responsible for coordinating the activities of the aggregates in this bounded context and the Payment bounded context by routing commands and events between them. We&#8217;ve always been aware that a failure here could have adverse consequences for the system, especially if the aggregates got out of sync with each other, or we ended up with zombie processes. We want to make sure that the system is robust in the face of these specific failure scenarios.</p>
+
+<p>The <strong>RegistrationProcess</strong> should be able to recover from the following:</p>
+
+<ul>
+<li>Crashes or is unable to access storage after receiving an event and before it sends any commands.</li>
+<li>Crashes or is unable to access storage after saving its own state but before sending the commands.</li>
+<li>Fails to mark an event as processed after it has finished doing all of its work.</li>
+<li>Times-out because it is expecting a timely response from any of the commands it has sent, but for some reason the recipients of those commands fail to respond.</li>
+<li>Receives an unexpected event (i.e. PaymentCompleted after the order has been expired).</li>
+</ul>
+
+
+<h2>Optimizing the System</h2>
+
+<p>The optimization effort will focus around the UI flow. Currently, when a Registrant is ordering and paying for seats at a conference, the UI waits for some processing to complete in the domain (such as checking for seats availability), before displaying the next page to the Registrant. We plan to streamline this process to make the UI much more responsive, while still ensuring that a Registrant doesn&#8217;t pay for seats that the system couldn&#8217;t reserve (this is a strict domain constraint).</p>
+
+<p>You can track our progress against the <a href="https://github.com/mspnp/cqrs-journey-code/issues?milestone=6">V3 milestone</a>.</p>
+
+<p>Feel free to provide feedback on code/guidance and <a href="http://cqrsjourney.github.com/contributors/">contribute</a>.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -730,6 +791,10 @@ You can read our motivation for choosing this domain <a href="http://blogs.msdn.
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/05/30/plans-for-v3/">Plans for V3</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/05/21/V2-Pseudo-Production-Release-is-out/">V2 Pseudo-Production Release is out</a>
       </li>
     
@@ -743,10 +808,6 @@ You can read our motivation for choosing this domain <a href="http://blogs.msdn.
     
       <li class="post">
         <a href="/blog/2012/05/08/Announcing-V1-Pseudo-Production-Release/">Announcing V1 Pseudo-Production Release</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/01/Open-Call-For-Enhancements-To-Event-Store/">Open Call for Enhancements to Event Store Implementation</a>
       </li>
     
   <li><a href="/blog/archives">Complete Archives</a></li>

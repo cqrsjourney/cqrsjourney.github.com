@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>V2 Pseudo-Production Release is out - Project "a CQRS Journey"</title>
+  <title>Plans for V3 - Project "a CQRS Journey"</title>
   <meta name="author" content="Microsoft patterns &amp; practices">
 
   
-  <meta name="description" content="This is our second pseudo-production release of the Contoso Conference Management System. The plan was to explore the migration process to understa...">
+  <meta name="description" content="For our third and final release of the Contoso Conference Management System in our CQRS journey, we&#8217;re planning to focus on hardening and opt...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://cqrsjourney.github.com/blog/2012/05/21/V2-Pseudo-Production-Release-is-out/">
+  <link rel="canonical" href="http://cqrsjourney.github.com/blog/2012/05/30/plans-for-v3/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -77,7 +77,7 @@ $.domReady(function() {
   
   <header>
     
-      <h1 class="entry-title">V2 Pseudo-Production Release Is Out</h1>
+      <h1 class="entry-title">Plans for V3</h1>
     
     
       <p class="meta">
@@ -91,7 +91,7 @@ $.domReady(function() {
 
 
 
-<time datetime="2012-05-21T11:30:00-07:00" pubdate  data-updated="true" >May 21<span>st</span>, 2012</time>
+<time datetime="2012-05-30T10:56:00-07:00" pubdate  data-updated="true" >May 30<span>th</span>, 2012</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -100,48 +100,32 @@ $.domReady(function() {
   </header>
 
 
-<div class="entry-content"><p>This is our <a href="http://cqrsjourney.github.com/blog/2012/05/15/Plan-for-V2/">second pseudo-production release</a> of the Contoso Conference Management System. The plan was to explore the <strong>migration process</strong> to understand better how this works in a CQRS/ES implementation and to see if we could perform a no-downtime upgrade with our current infrastructure.</p>
+<div class="entry-content"><p>For our third and final release of the Contoso Conference Management System in our CQRS journey, we&#8217;re planning to focus on hardening and optimizing the system. We also intend this to be a no-downtime upgrade - something that we didn&#8217;t achieve last time around.</p>
 
-<p>The picture below depicts a portion of our migrated read models (only some of which are actually in SQL Azure).<br/>
-<img src="/images/posts/cqrsjourney-conference-v2-migration.png" border="0"/></p>
+<p>You can see the the announcements for the previous two releases here <a href="http://cqrsjourney.github.com/blog/2012/05/08/Announcing-V1-Pseudo-Production-Release/">V1</a> and here <a href="http://cqrsjourney.github.com/blog/2012/05/21/V2-Pseudo-Production-Release-is-out/">V2</a>.</p>
 
-<p>The following user stories made it into the release:</p>
+<h2>Hardening the System</h2>
 
-<ol>
-<li><p>Providing a better user experience for <strong>zero-cost orders</strong> (in V1 the registrant was still taken to the payments system even if there was nothing to pay).</p></li>
-<li><p>Displaying the number of <strong>remaining seats</strong> of each seat type in the UI (since there was no read model for this in V1).</p></li>
-<li><p>Applying <strong>UX designs</strong> to the <strong>Conference Creation/Management BC</strong>.</p></li>
-</ol>
+<p>The Orders and Registrations bounded context has contained the <strong>RegistrationProcess</strong> Process Manager (are what sometimes is referred as a Saga in the CQRS community) right from our V1 release. This piece of the system is responsible for coordinating the activities of the aggregates in this bounded context and the Payment bounded context by routing commands and events between them. We&#8217;ve always been aware that a failure here could have adverse consequences for the system, especially if the aggregates got out of sync with each other, or we ended up with zombie processes. We want to make sure that the system is robust in the face of these specific failure scenarios.</p>
 
-
-<p>Unfortunately, it was not possible this time to perform a no-downtime upgrade. This was due to:</p>
+<p>The <strong>RegistrationProcess</strong> should be able to recover from the following:</p>
 
 <ul>
-<li>The fact that we weren&#8217;t storing all the integration events needed in order to regenerate some read models, nor did we have an API for querying the state of the system from an external Bounded Context. So we now have a <strong>message log</strong> for every message that goes through the service bus.</li>
-<li>Because of this, we have also decided to migrate the event store infrastructure to account for the additional metadata that the message log requires, and we will use as the base for replaying events when regenerating read models (as the message log is much easier to query and is already sorted by time).</li>
+<li>Crashes or is unable to access storage after receiving an event and before it sends any commands.</li>
+<li>Crashes or is unable to access storage after saving its own state but before sending the commands.</li>
+<li>Fails to mark an event as processed after it has finished doing all of its work.</li>
+<li>Times-out because it is expecting a timely response from any of the commands it has sent, but for some reason the recipients of those commands fail to respond.</li>
+<li>Receives an unexpected event (i.e. PaymentCompleted after the order has been expired).</li>
 </ul>
 
 
-<p>Our migration resulted in ~6 min downtime.</p>
+<h2>Optimizing the System</h2>
 
-<p>Now that we have the infrastructure in place, a no-downtime upgrade seems to be an attainable goal for our V3 release.</p>
+<p>The optimization effort will focus around the UI flow. Currently, when a Registrant is ordering and paying for seats at a conference, the UI waits for some processing to complete in the domain (such as checking for seats availability), before displaying the next page to the Registrant. We plan to streamline this process to make the UI much more responsive, while still ensuring that a Registrant doesn&#8217;t pay for seats that the system couldn&#8217;t reserve (this is a strict domain constraint).</p>
 
-<p>In addition to the behind-the-scenes changes listed in the previous <a href="http://cqrsjourney.github.com/blog/2012/05/15/Plan-for-V2/">post</a>, the team made the following changes:</p>
+<p>You can track our progress against the <a href="https://github.com/mspnp/cqrs-journey-code/issues?milestone=6">V3 milestone</a>.</p>
 
-<ul>
-<li>As mentioned above, there is a now a message log that persists all commands and events. This grew out of the need to persist the integration events. In addition to regenerating read models from events, this is also intended to future-proof the application by capturing everything that might be of interest at some point in the future.</li>
-<li>The Conference solution now includes a migration program to migrate the data to the new event store, re-create the integration events that the V1 release did not persist, and rebuild the read-models with additonal data.</li>
-<li>Several bug fixes (see the <a href="https://github.com/mspnp/cqrs-journey-code/issues?labels=&amp;milestone=5&amp;page=1&amp;state=closed">backlog for V2</a> or the <a href="https://github.com/mspnp/cqrs-journey-code/commits/dev">commit history</a>)</li>
-</ul>
-
-
-<p>You can access the updated version of the application as a <a href="http://cqrsjourney-conference.cloudapp.net">Registrant</a> or as a <a href="http://cqrsjourney-conference.cloudapp.net:8080">Business Customer</a>:</p>
-
-<p><a href="http://cqrsjourney-conference.cloudapp.net" alt="CQRS Journey : Conference Management System"><img src="/images/posts/cqrsjourney-conference-v2.png" border="0"/></a> &nbsp; <a href="http://cqrsjourney-conference.cloudapp.net:8080" alt="CQRS Journey : Conference Management System - Admin Portal"><img src="/images/posts/cqrsjourney-confmgmt-v2.png" border="0"/></a></p>
-
-<p>We are now starting work on V3 and you can track our progress against the <a href="https://github.com/mspnp/cqrs-journey-code/issues?milestone=6">V3 milestone</a>.</p>
-
-<p>You can read about the V2 release in more detail <a href="https://github.com/mspnp/cqrs-journey-doc/blob/master/Journey_06_V2Release.markdown">here</a> and about the V1 release <a href="http://cqrsjourney.github.com/blog/2012/05/08/Announcing-V1-Pseudo-Production-Release/">here</a>.</p>
+<p>Feel free to provide feedback on code/guidance and <a href="http://cqrsjourney.github.com/contributors/">contribute</a>.</p>
 </div>
 
 
@@ -162,12 +146,12 @@ $.domReady(function() {
 
 
 
-<time datetime="2012-05-21T11:30:00-07:00" pubdate  data-updated="true" >May 21<span>st</span>, 2012</time>
+<time datetime="2012-05-30T10:56:00-07:00" pubdate  data-updated="true" >May 30<span>th</span>, 2012</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/migration/'>migration</a>, <a class='category' href='/blog/categories/release/'>release</a>
+    <a class='category' href='/blog/categories/evolution/'>Evolution</a>, <a class='category' href='/blog/categories/journey/'>Journey</a>, <a class='category' href='/blog/categories/maintenance/'>Maintenance</a>, <a class='category' href='/blog/categories/ri/'>RI</a>
   
 </span>
 
@@ -176,7 +160,7 @@ $.domReady(function() {
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://cqrsjourney.github.com/blog/2012/05/21/V2-Pseudo-Production-Release-is-out/" data-via="mspnp" data-counturl="http://cqrsjourney.github.com/blog/2012/05/21/V2-Pseudo-Production-Release-is-out/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://cqrsjourney.github.com/blog/2012/05/30/plans-for-v3/" data-via="mspnp" data-counturl="http://cqrsjourney.github.com/blog/2012/05/30/plans-for-v3/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -297,8 +281,8 @@ $.domReady(function() {
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://cqrsjourney.github.com/blog/2012/05/21/V2-Pseudo-Production-Release-is-out/';
-        var disqus_url = 'http://cqrsjourney.github.com/blog/2012/05/21/V2-Pseudo-Production-Release-is-out/';
+        var disqus_identifier = 'http://cqrsjourney.github.com/blog/2012/05/30/plans-for-v3/';
+        var disqus_url = 'http://cqrsjourney.github.com/blog/2012/05/30/plans-for-v3/';
         var disqus_script = 'embed.js'
       
 
