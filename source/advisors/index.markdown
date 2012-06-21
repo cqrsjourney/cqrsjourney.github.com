@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Advisory Board Index"
-date: 2012-04-18 10:37
+date: 2012-06-15 10:20
 comments: true
 sharing: true
 footer: true
@@ -18,9 +18,7 @@ The [list](/advisors/members) of individuals who are currently advising.
 
 ## Meetings
 
-The next meeing will be held on **May 10, 2012**, 8:30 Pacific.
-
-Agenda includes a discussion of the occasionally-connected scenario: registration management on-site.
+We've now reached the end of our CQRS journey. No new advisory meetings are planned.
 
 <hr/>
 
@@ -76,4 +74,18 @@ Agenda includes a discussion of the occasionally-connected scenario: registratio
     <li>Conversion of  Order and Seat Availability aggregates to use event sourcing</li>
   </ol>
 </li>
+
+<li><strong>May 10</strong></br>
+  <ol type="a">
+  <li>V1 pseudo-production release</li>
+  <li>Plans for migrating history, data versioning in V2 – discussion of what would make sense to show in the journey, any gotchas etc.</li>
+  <li>Dealing with updated events</li>
+  <li>Dealing with read model mutation and integration events persistence</li>
+  <li>Challenges in integration between bounded contexts with event sourcing</li>
+  <li>In-proc command handling optimizations - question</li>
+  <li>Prototype of tooling to show command & event flows (by advisor)</li>
+  </ol>
+</li>
+
+
 

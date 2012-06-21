@@ -42,6 +42,10 @@ The current list of reviewers:
 [http://kellabyte.com/](http://kellabyte.com/)
 [@Kellabyte](http://twitter.com/#!/Kellabyte)
 
+####	Matias Woloski				
+[http://nodeblog.cloudapp.net   http://blogs.southworks.net/mwoloski/](http://nodeblog.cloudapp.net   http://blogs.southworks.net/mwoloski/)
+[@woloski](http://twitter.com/#!/woloski)
+
 #### Paweł Wilkosz, MVP
 [pwilkosz.wordpress.com](pwilkosz.wordpress.com)
 

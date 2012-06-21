@@ -26,11 +26,15 @@ The current list of advisory board members:
 [@bobbrum](http://twitter.com/#!/bobbrum)
 
 ### Bruce Onder 
-[http://www.academixdirect.com/](http://www.academixdirect.com/)	
+[http://www.academixdirect.com](http://www.academixdirect.com)	
 [@bonder](http://twitter.com/#!/bonder)
 
 ###	Bruno Terkaly				
-[http://blogs.msdn.com/brunoterkaly/](http://blogs.msdn.com/brunoterkaly/)
+[http://blogs.msdn.com/brunoterkaly](http://blogs.msdn.com/brunoterkaly)
+
+### Cesar De la Torre Llorente
+[http://blogs.msdn.com/cesardelatorre](http://blogs.msdn.com/cesardelatorre)
+[@cesardelatorre](http://twitter.com/#!/cesardelatorre)
 
 ### Chris Martin 
 [http://blog.eventday.com/blog/](http://blog.eventday.com/blog/)
