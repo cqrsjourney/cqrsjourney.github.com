@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Contributors"
-date: 2012-05-14 15:29
+date: 2012-06-25 10:52
 comments: false
 sharing: true
 footer: true
@@ -36,14 +36,14 @@ The current list of reviewers:
 [@chr_horsdal](http://twitter.com/#!/chr_horsdal)
 
 #### Jose Miguel Torres, MVP
-[http://josemigueltorres.net][http://josemigueltorres.net]
+[http://josemigueltorres.net](http://josemigueltorres.net)
 
 ####	Kelly Sommers				
 [http://kellabyte.com/](http://kellabyte.com/)
 [@Kellabyte](http://twitter.com/#!/Kellabyte)
 
 ####	Matias Woloski				
-[http://nodeblog.cloudapp.net   http://blogs.southworks.net/mwoloski/](http://nodeblog.cloudapp.net   http://blogs.southworks.net/mwoloski/)
+[http://woloski.com/](http://woloski.com/)
 [@woloski](http://twitter.com/#!/woloski)
 
 #### Paweł Wilkosz, MVP
