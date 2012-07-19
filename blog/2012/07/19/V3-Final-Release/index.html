@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Announcing V1 Pseudo-Production Release - Project "a CQRS Journey"</title>
+  <title>V3 Final Release - Project "a CQRS Journey"</title>
   <meta name="author" content="Microsoft patterns &amp; practices">
 
   
-  <meta name="description" content="As part of our CQRS Journey we plan to have several pseudo-production releases of the Contoso Conference Management System so that we can explore t...">
+  <meta name="description" content="This is our third (and final for this project) pseudo-production release of the Contoso Conference Management System. The plan was to focus on hard...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://cqrsjourney.github.com/blog/2012/05/08/Announcing-V1-Pseudo-Production-Release/">
+  <link rel="canonical" href="http://cqrsjourney.github.com/blog/2012/07/19/V3-Final-Release/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -77,7 +77,7 @@ $.domReady(function() {
   
   <header>
     
-      <h1 class="entry-title">Announcing V1 Pseudo-Production Release</h1>
+      <h1 class="entry-title">V3 Final Release</h1>
     
     
       <p class="meta">
@@ -91,7 +91,7 @@ $.domReady(function() {
 
 
 
-<time datetime="2012-05-08T11:45:00-07:00" pubdate  data-updated="true" >May 8<span>th</span>, 2012</time>
+<time datetime="2012-07-19T10:31:00-07:00" pubdate  data-updated="true" >Jul 19<span>th</span>, 2012</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -100,42 +100,54 @@ $.domReady(function() {
   </header>
 
 
-<div class="entry-content"><p>As part of our CQRS Journey we plan to have <a href="http://cqrsjourney.github.com/blog/2012/04/12/Road-to-V1/">several pseudo-production releases</a> of the Contoso Conference Management System so that we can explore the real-world issues of data-versioning and software updates in an application that implements the CQRS pattern in several bounded contexts. Over the next few weeks we plan more pseudo-production releases and as we go through them we will be describing our experiences in the guidance documentation.</p>
+<div class="entry-content"><p>This is our <a href="http://cqrsjourney.github.com/blog/2012/05/30/plans-for-v3/">third (and final for this project) pseudo-production release</a> of the Contoso Conference Management System. The plan was to focus on hardening and optimizing the system, and to see if we could perform the no-downtime upgrade that we didn&#8217;t manage to achieve in the previous update from <a href="http://cqrsjourney.github.com/blog/2012/05/21/V2-Pseudo-Production-Release-is-out/">V1 to V2</a>.</p>
 
-<p>Today we are releasing the first of these pseudo-production releases: Contoso Conference Management System (V1).</p>
+<p>There were no new business features implemented in this release, but we did make significant changes to the code as part of our efforts to harden and optimize the system.</p>
 
-<p><img class="left" src="/images/posts/cqrsjourney-conference-v1.png"></p>
+<p><a href="http://en.wikipedia.org/wiki/File:3_tourist_helping_artist_blacksmith_in_finland.JPG"><img src="/images/posts/hardening.jpg" alt="Original image under the Creative Commons Attribution-Share Alike 3.0 Unported license" border="0" /></a></p>
 
-<p>The current release consists of three bounded contexts:</p>
+<h2>Hardening the system</h2>
+
+<p>As part of this release, the team revisited the <strong>RegistrationProcessManager</strong> to ensure its resilience to a wide range of potential failure conditions. These changes fall into two categories:</p>
 
 <ul>
-<li><em>Conference Management</em> (implemented using a traditional CRUD-style architecture).</li>
-<li><em>Orders and Registrations</em> (implementing the CQRS pattern and using event sourcing).</li>
-<li><em>Payments</em> (implementing the CQRS pattern and using a SQL-based storage).</li>
+<li>Resilience in the face of duplicate events: the system must guarantee idempotent behavior, so that if for any reason it tries to process an individual event more than once, then this does not result in inconsistencies.</li>
+<li>Robustness when sending commands: the team implemented a pseudo-transaction to provide guarantees that the system always sends any outstanding commands from the <strong>RegistrationProcessManager</strong> whenever it saves the process manager&#8217;s state. A pseudo-transaction is necessary because it is neither advisable nor possible to enlist the Windows Azure Service Bus and a SQL Database table together in a distributed transaction.</li>
 </ul>
 
 
-<p>Keep in mind, while based on the real-world requirements, it is still a <u>sample</u> application. It doesn’t include the following:</p>
+<h2>No-downtime migration</h2>
+
+<p>The team implemented a no-downtime migration strategy to get from V2 to V3 and successfully performed this migration on the live system deployed to Windows Azure. To help with this process, we created an ad-hoc processor that keeps the V2 read-models up to date during the migration process. This was necessary because we replace the V2 processor with the V3 processor before we switch to the new V3 front-end.</p>
+
+<h2>Optimizing the system</h2>
+
+<p>The optimizations added by the team were optimizations to improve both the performance and the scalability of the system. These optimizations took the majority of the team&#8217;s effort in this release. As is often the case with performance tuning, addressing one bottleneck frequently revealed another elsewhere in the system. The optimizations occurred in two places; first, in the UI flow, and second, in the infrastructure.</p>
+
+<h3>UI optimizations</h3>
+
+<p>The optimizations implemented in the UI flow were designed to streamline the behind-the-scenes processes that take place between the time that a registrant selects seats for a conference and the time the registrant pays for those seats. The changes mean that the user is far less likely to have to wait at any point in this process, but still ensuring that the system checks that the requested seats are available before accepting payment. It does this in two ways. First, when there are plenty of seats available for a conference, the system assumes that the reservation will succeed and so performs the reservation asynchronously while the registrant is completing other screens in the UI and before the regenerating gets to the payment stage. Secondly, we reorganized the <strong>Order</strong> entity to perform the totals calculation as one of its first tasks instead of one of its last tasks, making the information available in a read model much sooner that was previously the case.</p>
+
+<h3>Infrastructure optimizations</h3>
+
+<p>These were the most effective optimizations, but took the longest time to identify and implement. The optimizations included:</p>
 
 <ul>
-<li>Authorization (on the backlog for V2).</li>
-<li>Styling for the conference management web site (on the backlog for V2).</li>
-<li>Integration with a real third-party  payment processor (out of scope for the guidance project; we&#8217;ll keep the simulated one).</li>
-<li>Conference details (description, speakers, tracks, sessions, etc.) - you will see static data in the registration hub for now.</li>
-<li>Perf testing (on the backlog for V3).</li>
+<li>Handling the majority of I/O operations asynchronously. This is recommended practice, but makes the code much harder to read especially when combined with transient fault handling logic.</li>
+<li>Processing some commands in-process instead of pushing them through the service bus. In some cases it is possible to handle  commands in the same process where they are sent, and this therefore reduces the number of messages we are sending through the service bus and reduces the latency in delivering those command messages.</li>
+<li>Implementing snapshots in the event sourcing sub-system. This is a common optimization to event sourcing, and we implemented this in memory using the Memento pattern.</li>
+<li>Caching read-model data. Again, this is a common optimization, but this raises the question of how frequently the cache is updated.</li>
+<li>Tuning the Windows Azure Service Bus by using features such as filters and by implementing parallel publishing, parallel sessions, partitioned topics, and more. For proven perf optimization practices, see this <a href="http://aka.ms/SBperf">guide</a>.</li>
+<li>Using sequential GUIDs to optimize insert behavior into Windows Azure SQL Database tables.</li>
 </ul>
 
 
-<p>If you would like to explore the code in the V1 release, you can <strong>download it from GitHub <a href="https://github.com/mspnp/cqrs-journey-code/tree/V1-pseudo-prod">here</a></strong>.
-To help you get started with building/deploying/running the V1 release code see the release notes <a href="https://github.com/mspnp/cqrs-journey-doc/blob/master/Appendix1_Running.markdown">here</a>.</p>
+<p>For full details of these optimizations and more, take a look at Chapter 7, &#8221;<a href="https://github.com/mspnp/cqrs-journey-doc/blob/master/Journey_07_V3Release.markdown">Adding Resilience and Optimizing Performance</a>,&#8221; in the journey guide. This chapter also identifies some of the additional optimizations we would like to perform given time.</p>
 
-<p>The current release uses the Windows Azure Service Bus to provide its messaging infrastructure and can be deployed to Windows Azure. You can access a deployed version of the application as a <a href="http://cqrsjourney-conference.cloudapp.net">Registrant</a> and as a <a href="http://cqrsjourney-conference.cloudapp.net:8080">Business Customer</a>. Please feel free to use the application and to generate some sample data for us so that we can migrate it for our V2 release.</p>
+<p>You can read about the V3 release in detail <a href="https://github.com/mspnp/cqrs-journey-doc/blob/master/Journey_07_V3Release.markdown">here</a>, and about all our lessons learned from the project <a href="https://github.com/mspnp/cqrs-journey-doc/blob/master/Journey_40_Conclusions.markdown">here</a>.
+The code base corresponding to this release is <a href="https://github.com/mspnp/cqrs-journey-code/tags">available</a> under the <em>V3-pseudo-prod</em> tag. You can also see the list of <a href="https://github.com/mspnp/cqrs-journey-code/issues?milestone=6&amp;state=closed">implemented stories</a>.</p>
 
-<p>Note: You can also run a copy of the application locally without using Windows Azure or Windows Azure Service Bus as described in the <a href="https://github.com/mspnp/cqrs-journey-doc/blob/master/Appendix1_Running.markdown">release notes</a>.</p>
-
-<p>We would appreciate your feedback on both the code and the written guidance. You can submit your reviews either via GitHub (comments, pull requests, issues) or via our <a href="http://pundit.cloudapp.net">lightweight review system</a>.</p>
-
-<p>If you&#8217;d like to participate in this sample system evolution and work on any improvements of the existing bounded contexts or new ones, check out <a href="https://github.com/mspnp/cqrs-journey-code/issues">our backlog</a>. We&#8217;ll be happy to see your pull requests!</p>
+<p>You can read about the previous <a href="http://cqrsjourney.github.com/blog/2012/05/21/V2-Pseudo-Production-Release-is-out/">V2 release</a> and about the previous <a href="http://cqrsjourney.github.com/blog/2012/05/08/Announcing-V1-Pseudo-Production-Release/">V1 release</a>.</p>
 </div>
 
 
@@ -156,12 +168,12 @@ To help you get started with building/deploying/running the V1 release code see 
 
 
 
-<time datetime="2012-05-08T11:45:00-07:00" pubdate  data-updated="true" >May 8<span>th</span>, 2012</time>
+<time datetime="2012-07-19T10:31:00-07:00" pubdate  data-updated="true" >Jul 19<span>th</span>, 2012</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/release/'>release</a>
+    <a class='category' href='/blog/categories/migration/'>migration</a>, <a class='category' href='/blog/categories/release/'>release</a>
   
 </span>
 
@@ -170,7 +182,7 @@ To help you get started with building/deploying/running the V1 release code see 
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://cqrsjourney.github.com/blog/2012/05/08/Announcing-V1-Pseudo-Production-Release/" data-via="mspnp" data-counturl="http://cqrsjourney.github.com/blog/2012/05/08/Announcing-V1-Pseudo-Production-Release/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://cqrsjourney.github.com/blog/2012/07/19/V3-Final-Release/" data-via="mspnp" data-counturl="http://cqrsjourney.github.com/blog/2012/07/19/V3-Final-Release/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -291,8 +303,8 @@ To help you get started with building/deploying/running the V1 release code see 
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://cqrsjourney.github.com/blog/2012/05/08/Announcing-V1-Pseudo-Production-Release/';
-        var disqus_url = 'http://cqrsjourney.github.com/blog/2012/05/08/Announcing-V1-Pseudo-Production-Release/';
+        var disqus_identifier = 'http://cqrsjourney.github.com/blog/2012/07/19/V3-Final-Release/';
+        var disqus_url = 'http://cqrsjourney.github.com/blog/2012/07/19/V3-Final-Release/';
         var disqus_script = 'embed.js'
       
 
