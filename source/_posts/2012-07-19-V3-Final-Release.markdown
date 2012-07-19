@@ -51,6 +51,10 @@ The code base corresponding to this release is [available][tags] under the *V3-p
 
 You can read about the previous [V2 release][v2release] and about the previous [V1 release][v1release].
 
+And of course, you can access the system with all prior data migrated:
+<a href="http://cqrsjourney-conference.cloudapp.net" alt="CQRS Journey : Conference Management System"><img src="/images/posts/cqrsjourney-conference-v3.png" border="0"/></a> &nbsp; <a href="http://cqrsjourney-conference.cloudapp.net:8080" alt="CQRS Journey : Conference Management System - Admin Portal"><img src="/images/posts/cqrsjourney-confmgmt-v3.png" border="0"/></a>
+
+
 
 [v3plans]:  http://cqrsjourney.github.com/blog/2012/05/30/plans-for-v3/
 [v3milestone]: https://github.com/mspnp/cqrs-journey-code/issues?milestone=6&state=closed
