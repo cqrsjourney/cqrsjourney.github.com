@@ -4,7 +4,7 @@
   <title>Project &#8220;a CQRS Journey&#8221;</title>
   <link href="http://cqrsjourney.github.com/atom.xml" rel="self"/>
   <link href="http://cqrsjourney.github.com/"/>
-  <updated>2012-07-19T11:35:01-07:00</updated>
+  <updated>2012-07-19T11:43:01-07:00</updated>
   <id>http://cqrsjourney.github.com/</id>
   <author>
     <name>Microsoft patterns &amp; practices</name>
@@ -67,6 +67,9 @@
 The code base corresponding to this release is &lt;a href=&quot;https://github.com/mspnp/cqrs-journey-code/tags&quot;&gt;available&lt;/a&gt; under the &lt;em&gt;V3-pseudo-prod&lt;/em&gt; tag. You can also see the list of &lt;a href=&quot;https://github.com/mspnp/cqrs-journey-code/issues?milestone=6&amp;amp;state=closed&quot;&gt;implemented stories&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;You can read about the previous &lt;a href=&quot;http://cqrsjourney.github.com/blog/2012/05/21/V2-Pseudo-Production-Release-is-out/&quot;&gt;V2 release&lt;/a&gt; and about the previous &lt;a href=&quot;http://cqrsjourney.github.com/blog/2012/05/08/Announcing-V1-Pseudo-Production-Release/&quot;&gt;V1 release&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;And of course, you can access the system with all prior data migrated:
+&lt;a href=&quot;http://cqrsjourney-conference.cloudapp.net&quot; alt=&quot;CQRS Journey : Conference Management System&quot;&gt;&lt;img src=&quot;http://cqrsjourney.github.com/images/posts/cqrsjourney-conference-v3.png&quot; border=&quot;0&quot;/&gt;&lt;/a&gt; &amp;nbsp; &lt;a href=&quot;http://cqrsjourney-conference.cloudapp.net:8080&quot; alt=&quot;CQRS Journey : Conference Management System - Admin Portal&quot;&gt;&lt;img src=&quot;http://cqrsjourney.github.com/images/posts/cqrsjourney-confmgmt-v3.png&quot; border=&quot;0&quot;/&gt;&lt;/a&gt;&lt;/p&gt;
 </content>
   </entry>
   
