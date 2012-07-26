@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Contributors"
-date: 2012-07-06 8:24
+date: 2012-07-26 15:01
 comments: false
 sharing: true
 footer: true
@@ -60,9 +60,17 @@ The current list of reviewers:
 
 #### Ksenia Mukhortova
 
+#### Magnus Mårtensson, MVP
+[http://blog.noop.se/](http://blog.noop.se/)
+[@noopman](http://twitter.com/#!/noopman)
+
 ####	Matias Woloski				
 [http://woloski.com/](http://woloski.com/)
 [@woloski](http://twitter.com/#!/woloski)
+
+#### Neil Mackenzie, MVP
+[http://convective.wordpress.com/](http://convective.wordpress.com/)
+[@mknz](http://twitter.com/#!/mknz)
 
 #### Paweł Wilkosz, MVP
 [pwilkosz.wordpress.com](pwilkosz.wordpress.com)
@@ -74,7 +82,13 @@ The current list of reviewers:
 ####	Shy Cohen, MVP
 [http://www.shycohen.com/blog/default.htm](http://www.shycohen.com/blog/default.htm)
 [@shycohen](http://twitter.com/#!/shycohen)
-					
+
+#### Tiberiu Covaci, MVP
+[http://blog.multi-core.se/](http://blog.multi-core.se/)
+[@tibor19](http://twitter.com/#!/tibor19)					
+
+#### User under the 'jhgbrt' alias
+[https://github.com/jhgbrt](https://github.com/jhgbrt)
 
 
 ##Thank you!
