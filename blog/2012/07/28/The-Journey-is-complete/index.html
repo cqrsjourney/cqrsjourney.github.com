@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Plans for V3 - Project "a CQRS Journey"</title>
+  <title>The first Journey is complete - Project "a CQRS Journey"</title>
   <meta name="author" content="Microsoft patterns &amp; practices">
 
   
-  <meta name="description" content="For our third and final release of the Contoso Conference Management System in our CQRS journey, we&#8217;re planning to focus on hardening and opt...">
+  <meta name="description" content="We have now reached the end of this journey. See the official announcement with the full list of acknowledgements    here.You can check out the gui...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://cqrsjourney.github.com/blog/2012/05/30/plans-for-v3/">
+  <link rel="canonical" href="http://cqrsjourney.github.com/blog/2012/07/28/The-Journey-is-complete/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -77,7 +77,7 @@ $.domReady(function() {
   
   <header>
     
-      <h1 class="entry-title">Plans for V3</h1>
+      <h1 class="entry-title">The First Journey Is Complete</h1>
     
     
       <p class="meta">
@@ -91,7 +91,7 @@ $.domReady(function() {
 
 
 
-<time datetime="2012-05-30T10:56:00-07:00" pubdate  data-updated="true" >May 30<span>th</span>, 2012</time>
+<time datetime="2012-07-28T09:00:00-07:00" pubdate  data-updated="true" >Jul 28<span>th</span>, 2012</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -100,32 +100,17 @@ $.domReady(function() {
   </header>
 
 
-<div class="entry-content"><p>For our third and final release of the Contoso Conference Management System in our CQRS journey, we&#8217;re planning to focus on hardening and optimizing the system. We also intend this to be a no-downtime upgrade - something that we didn&#8217;t achieve last time around.</p>
+<div class="entry-content"><p>We have now reached the end of this journey. See the official announcement with the full list of acknowledgements    <a href="http://aka.ms/cqrsrelease">here</a>.
+You can check out the guide and the corresponding reference implementation at <a href="http://aka.ms/cqrs">http://aka.ms/cqrs</a>.</p>
 
-<p>You can see the the announcements for the previous two releases here <a href="http://cqrsjourney.github.com/blog/2012/05/08/Announcing-V1-Pseudo-Production-Release/">V1</a> and here <a href="http://cqrsjourney.github.com/blog/2012/05/21/V2-Pseudo-Production-Release-is-out/">V2</a>.</p>
+<p><a href="http://aka.ms/cqrs"><img src="/images/posts/Map_cqrs_journey_small.png" alt="CQRS Journey Map" border="0" /></a></p>
 
-<h2>Hardening the System</h2>
+<p>We also welcome your feedback and stories with your own experiences. Check out the section of the guide called <em>Tales from the Trenches</em> which includes mini-cases studies of other teams implementing the CQRS and ES patterns in the real world.  Some of them validate our findings, others provide different perspectives. Take our project for a spin, explore our findings and those of others, and tell your story! Email us at
+<strong>cqrsjourney</strong> at <strong>microsoft</strong> dot <strong>com</strong>.</p>
 
-<p>The Orders and Registrations bounded context has contained the <strong>RegistrationProcess</strong> Process Manager (are what sometimes is referred as a Saga in the CQRS community) right from our V1 release. This piece of the system is responsible for coordinating the activities of the aggregates in this bounded context and the Payment bounded context by routing commands and events between them. We&#8217;ve always been aware that a failure here could have adverse consequences for the system, especially if the aggregates got out of sync with each other, or we ended up with zombie processes. We want to make sure that the system is robust in the face of these specific failure scenarios.</p>
+<p>There&#8217;s still a lot to explore. We would like to encourage the community to improve and extend our implementation of the Contoso Conference Management System. The github code repo remains open and we&#8217;ll continue to review any and all of your pull requests.</p>
 
-<p>The <strong>RegistrationProcess</strong> should be able to recover from the following:</p>
-
-<ul>
-<li>Crashes or is unable to access storage after receiving an event and before it sends any commands.</li>
-<li>Crashes or is unable to access storage after saving its own state but before sending the commands.</li>
-<li>Fails to mark an event as processed after it has finished doing all of its work.</li>
-<li>Times-out because it is expecting a timely response from any of the commands it has sent, but for some reason the recipients of those commands fail to respond.</li>
-<li>Receives an unexpected event (i.e. PaymentCompleted after the order has been expired).</li>
-</ul>
-
-
-<h2>Optimizing the System</h2>
-
-<p>The optimization effort will focus around the UI flow. Currently, when a Registrant is ordering and paying for seats at a conference, the UI waits for some processing to complete in the domain (such as checking for seats availability), before displaying the next page to the Registrant. We plan to streamline this process to make the UI much more responsive, while still ensuring that a Registrant doesn&#8217;t pay for seats that the system couldn&#8217;t reserve (this is a strict domain constraint).</p>
-
-<p>You can track our progress against the <a href="https://github.com/mspnp/cqrs-journey-code/issues?milestone=6">V3 milestone</a>.</p>
-
-<p>Feel free to provide feedback on code/guidance and <a href="http://cqrsjourney.github.com/contributors/">contribute</a>.</p>
+<p>Once again, your feedback is very important. Based on it, we may or may not decide to embark on the second journey in the future. For now, we remain enthused!</p>
 </div>
 
 
@@ -146,12 +131,12 @@ $.domReady(function() {
 
 
 
-<time datetime="2012-05-30T10:56:00-07:00" pubdate  data-updated="true" >May 30<span>th</span>, 2012</time>
+<time datetime="2012-07-28T09:00:00-07:00" pubdate  data-updated="true" >Jul 28<span>th</span>, 2012</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/evolution/'>Evolution</a>, <a class='category' href='/blog/categories/journey/'>Journey</a>, <a class='category' href='/blog/categories/maintenance/'>Maintenance</a>, <a class='category' href='/blog/categories/ri/'>RI</a>
+    <a class='category' href='/blog/categories/release/'>release</a>
   
 </span>
 
@@ -160,7 +145,7 @@ $.domReady(function() {
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://cqrsjourney.github.com/blog/2012/05/30/plans-for-v3/" data-via="mspnp" data-counturl="http://cqrsjourney.github.com/blog/2012/05/30/plans-for-v3/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://cqrsjourney.github.com/blog/2012/07/28/The-Journey-is-complete/" data-via="mspnp" data-counturl="http://cqrsjourney.github.com/blog/2012/07/28/The-Journey-is-complete/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -281,8 +266,8 @@ $.domReady(function() {
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://cqrsjourney.github.com/blog/2012/05/30/plans-for-v3/';
-        var disqus_url = 'http://cqrsjourney.github.com/blog/2012/05/30/plans-for-v3/';
+        var disqus_identifier = 'http://cqrsjourney.github.com/blog/2012/07/28/The-Journey-is-complete/';
+        var disqus_url = 'http://cqrsjourney.github.com/blog/2012/07/28/The-Journey-is-complete/';
         var disqus_script = 'embed.js'
       
 

@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Plans for V3 - Project "a CQRS Journey"</title>
+  <title>Project "a CQRS Journey"</title>
   <meta name="author" content="Microsoft patterns &amp; practices">
 
   
-  <meta name="description" content="For our third and final release of the Contoso Conference Management System in our CQRS journey, we&#8217;re planning to focus on hardening and opt...">
+  <meta name="description" content="We have positioned the CQRS guidance project as a learning journey. We’ve formed a stellar advisory board and performed some public consultation ...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://cqrsjourney.github.com/blog/2012/05/30/plans-for-v3/">
+  <link rel="canonical" href="http://cqrsjourney.github.com/blog/page/2/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -72,12 +72,15 @@ $.domReady(function() {
 </nav>
   <div id="main">
     <div id="content">
-      <div>
-<article class="hentry" role="article">
+      <div class="blog-index">
   
+  
+  
+    <article>
+      
   <header>
     
-      <h1 class="entry-title">Plans for V3</h1>
+      <h1 class="entry-title"><a href="/blog/2012/02/25/Taking-Community-Contibutions/">Taking Community Contributions</a></h1>
     
     
       <p class="meta">
@@ -91,94 +94,53 @@ $.domReady(function() {
 
 
 
-<time datetime="2012-05-30T10:56:00-07:00" pubdate  data-updated="true" >May 30<span>th</span>, 2012</time>
+<time datetime="2012-02-25T06:45:00-08:00" pubdate  data-updated="true" >Feb 25<span>th</span>, 2012</time>
         
-         | <a href="#disqus_thread">Comments</a>
+         | <a href="/blog/2012/02/25/Taking-Community-Contibutions/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>For our third and final release of the Contoso Conference Management System in our CQRS journey, we&#8217;re planning to focus on hardening and optimizing the system. We also intend this to be a no-downtime upgrade - something that we didn&#8217;t achieve last time around.</p>
-
-<p>You can see the the announcements for the previous two releases here <a href="http://cqrsjourney.github.com/blog/2012/05/08/Announcing-V1-Pseudo-Production-Release/">V1</a> and here <a href="http://cqrsjourney.github.com/blog/2012/05/21/V2-Pseudo-Production-Release-is-out/">V2</a>.</p>
-
-<h2>Hardening the System</h2>
-
-<p>The Orders and Registrations bounded context has contained the <strong>RegistrationProcess</strong> Process Manager (are what sometimes is referred as a Saga in the CQRS community) right from our V1 release. This piece of the system is responsible for coordinating the activities of the aggregates in this bounded context and the Payment bounded context by routing commands and events between them. We&#8217;ve always been aware that a failure here could have adverse consequences for the system, especially if the aggregates got out of sync with each other, or we ended up with zombie processes. We want to make sure that the system is robust in the face of these specific failure scenarios.</p>
-
-<p>The <strong>RegistrationProcess</strong> should be able to recover from the following:</p>
+  <div class="entry-content"><p>We have positioned the CQRS guidance project as a learning journey. We’ve formed a stellar <a href="http://cqrsjourney.github.com/advisors/members/">advisory board</a> and performed some <a href="http://www.surveymonkey.com/s/cqrsguide">public consultation</a> that helped us scope the project initially. While this is good news, we recognize that for this project to be successful, we need to be not only open and transparent, but we also need to collaborate with the community (in its way a global village) more closely. That’s why we are extremely happy and proud to announce that for the first time in the history of the <a href="http://msdn.com/practices">Microsoft patterns &amp; practices</a> team, the following: <strong>In the true spirit of open source, we will be taking community contributions on the CQRS Journey project</strong>. This means:</p>
 
 <ul>
-<li>Crashes or is unable to access storage after receiving an event and before it sends any commands.</li>
-<li>Crashes or is unable to access storage after saving its own state but before sending the commands.</li>
-<li>Fails to mark an event as processed after it has finished doing all of its work.</li>
-<li>Times-out because it is expecting a timely response from any of the commands it has sent, but for some reason the recipients of those commands fail to respond.</li>
-<li>Receives an unexpected event (i.e. PaymentCompleted after the order has been expired).</li>
+<li>The written guidance and the sample code will be developed in the open and with community involvement.</li>
+<li>We, Microsoft patterns &amp; practices team, will review and accept contributions that meet our guidelines.</li>
+<li>The final deliverable will have an open source license (<a href="http://opensource.org/licenses/Apache-2.0">Apache 2.0</a>).</li>
 </ul>
 
 
-<h2>Optimizing the System</h2>
+<p>The project will be hosted on GitHub. Our repositories are:</p>
 
-<p>The optimization effort will focus around the UI flow. Currently, when a Registrant is ordering and paying for seats at a conference, the UI waits for some processing to complete in the domain (such as checking for seats availability), before displaying the next page to the Registrant. We plan to streamline this process to make the UI much more responsive, while still ensuring that a Registrant doesn&#8217;t pay for seats that the system couldn&#8217;t reserve (this is a strict domain constraint).</p>
+<ul>
+<li><strong>Main code repo</strong> - <a href="https://github.com/mspnp/cqrs-journey-code">https://github.com/mspnp/cqrs-journey-code</a>. Also, includes our prioritized backlog of work items (published under <a href="https://github.com/mspnp/cqrs-journey-code/issues">Issues</a>) and includes stories, dev and test tasks, and bugs.</li>
+<li><strong>Guidance repo</strong> - <a href="https://github.com/mspnp/cqrs-journey-doc">https://github.com/mspnp/cqrs-journey-doc</a>. Also, includes the backlog of doc stories, tasks, and content bugs.</li>
+<li><strong>Project wiki</strong> - <a href="https://github.com/mspnp/cqrs-journey-wiki">https://github.com/mspnp/cqrs-journey-wiki</a>, where we will try to reconcile various key CQRS and ES related terms and also maintain the ubiquitous language for the domain of the sample application we are building.</li>
+</ul>
 
-<p>You can track our progress against the <a href="https://github.com/mspnp/cqrs-journey-code/issues?milestone=6">V3 milestone</a>.</p>
 
-<p>Feel free to provide feedback on code/guidance and <a href="http://cqrsjourney.github.com/contributors/">contribute</a>.</p>
+<p>You can find the contributions guidelines under Contribute section.</p>
+
+<p>Also, check out our company-wide <a href="http://www.microsoft.com/en-us/openness/default.aspx#home/videos/Commitment-to-Openness">openness initiative</a> and brace yourself for a ride! We look forward to working with you! Please keep sending us your feedback.</p>
 </div>
+  
+  
 
 
-  <footer>
-    <p class="meta">
+    </article>
+  
+  <nav class="pagination">
+    <div>
       
-  
-
-<span class="byline author vcard">Posted by <span class="fn">Microsoft patterns &amp; practices</span></span>
-
+      <a href="/blog/archives">Blog Archives</a>
       
-
-
-
-
-
-  
-
-
-
-<time datetime="2012-05-30T10:56:00-07:00" pubdate  data-updated="true" >May 30<span>th</span>, 2012</time>
+      <a class="next" href="/blog/">Newer &rarr;</a>
       
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/evolution/'>Evolution</a>, <a class='category' href='/blog/categories/journey/'>Journey</a>, <a class='category' href='/blog/categories/maintenance/'>Maintenance</a>, <a class='category' href='/blog/categories/ri/'>RI</a>
-  
-</span>
-
-
-    </p>
-    
-      <div class="sharing">
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://cqrsjourney.github.com/blog/2012/05/30/plans-for-v3/" data-via="mspnp" data-counturl="http://cqrsjourney.github.com/blog/2012/05/30/plans-for-v3/" >Tweet</a>
-  
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
+    </div>
+  </nav>
 </div>
-
-    
-  </footer>
-</article>
-
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-  </section>
-
-</div>
-
 <aside class="sidebar">
   
     <section>
@@ -217,7 +179,7 @@ $.domReady(function() {
 <section>
   <h1>Latest Tweets</h1>
   <ul id="tweets">
-    <li class="loading">Status updating...</li>
+    <li class="loading">Status updating&#8230;</li>
   </ul>
   <script type="text/javascript">
     $.domReady(function(){
@@ -234,7 +196,7 @@ $.domReady(function() {
 <section>
   <h1>Github Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating...</li>
+    <li class="loading">Status updating&#8230;</li>
   </ul>
   
   <a href="https://github.com/mspnp">@mspnp</a> on Github
@@ -264,7 +226,6 @@ $.domReady(function() {
   
 </aside>
 
-
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -280,10 +241,7 @@ $.domReady(function() {
       var disqus_shortname = 'cqrsjourney';
       
         
-        // var disqus_developer = 1;
-        var disqus_identifier = 'http://cqrsjourney.github.com/blog/2012/05/30/plans-for-v3/';
-        var disqus_url = 'http://cqrsjourney.github.com/blog/2012/05/30/plans-for-v3/';
-        var disqus_script = 'embed.js'
+        var disqus_script = 'count.js'
       
 
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

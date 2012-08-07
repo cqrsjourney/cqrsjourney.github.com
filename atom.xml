@@ -4,7 +4,7 @@
   <title>Project &#8220;a CQRS Journey&#8221;</title>
   <link href="http://cqrsjourney.github.com/atom.xml" rel="self"/>
   <link href="http://cqrsjourney.github.com/"/>
-  <updated>2012-07-26T15:01:32-07:00</updated>
+  <updated>2012-08-07T11:50:54-07:00</updated>
   <id>http://cqrsjourney.github.com/</id>
   <author>
     <name>Microsoft patterns &amp; practices</name>
@@ -13,6 +13,25 @@
     
   </author>
 
+  
+  <entry>
+    <title>The first Journey is complete</title>
+    <link href="http://cqrsjourney.github.com/blog/2012/07/28/The-Journey-is-complete/"/>
+    <updated>2012-07-28T09:00:00-07:00</updated>
+    <id>http://cqrsjourney.github.com/blog/2012/07/28/The-Journey-is-complete</id>
+    <content type="html">&lt;p&gt;We have now reached the end of this journey. See the official announcement with the full list of acknowledgements    &lt;a href=&quot;http://aka.ms/cqrsrelease&quot;&gt;here&lt;/a&gt;.
+You can check out the guide and the corresponding reference implementation at &lt;a href=&quot;http://aka.ms/cqrs&quot;&gt;http://aka.ms/cqrs&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://aka.ms/cqrs&quot;&gt;&lt;img src=&quot;http://cqrsjourney.github.com/images/posts/Map_cqrs_journey_small.png&quot; alt=&quot;CQRS Journey Map&quot; border=&quot;0&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;We also welcome your feedback and stories with your own experiences. Check out the section of the guide called &lt;em&gt;Tales from the Trenches&lt;/em&gt; which includes mini-cases studies of other teams implementing the CQRS and ES patterns in the real world.  Some of them validate our findings, others provide different perspectives. Take our project for a spin, explore our findings and those of others, and tell your story! Email us at
+&lt;strong&gt;cqrsjourney&lt;/strong&gt; at &lt;strong&gt;microsoft&lt;/strong&gt; dot &lt;strong&gt;com&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;There&amp;#8217;s still a lot to explore. We would like to encourage the community to improve and extend our implementation of the Contoso Conference Management System. The github code repo remains open and we&amp;#8217;ll continue to review any and all of your pull requests.&lt;/p&gt;
+
+&lt;p&gt;Once again, your feedback is very important. Based on it, we may or may not decide to embark on the second journey in the future. For now, we remain enthused!&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
     <title>V3 Final Release</title>
