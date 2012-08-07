@@ -1,10 +1,12 @@
 ---
 layout: page
-date: 2012-2-13 20:50
+date: 2012-07-27 20:50
 comments: true
 sharing: true
 footer: true
 ---
+
+<strong><font color="maroon" size="+2">The journey is now <a href="http://cqrsjourney.github.com/blog/2012/07/28/The-Journey-is-complete">complete</a>. Get the final deliverables <a href="http://aka.ms/cqrs">here</a></font></strong>.
 
 ## Who
 The [Microsoft patterns & practices](http://msdn.microsoft.com/practices) team is a group of engineers (developers, testers, program managers), designers, and technical writers who produce guidance to help the larger community build solutions. With this project, we hope to provide you with a map that will help you to find your own way with the Command and Query Responsibility Segregation (CQRS) and Event Sourcing (ES) patterns and related techniques.
