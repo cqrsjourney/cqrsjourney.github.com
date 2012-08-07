@@ -4,7 +4,7 @@
   <title>Project &#8220;a CQRS Journey&#8221;</title>
   <link href="http://cqrsjourney.github.com/atom.xml" rel="self"/>
   <link href="http://cqrsjourney.github.com/"/>
-  <updated>2012-08-07T11:50:54-07:00</updated>
+  <updated>2012-08-07T12:05:48-07:00</updated>
   <id>http://cqrsjourney.github.com/</id>
   <author>
     <name>Microsoft patterns &amp; practices</name>
@@ -27,7 +27,7 @@ You can check out the guide and the corresponding reference implementation at &l
 &lt;p&gt;We also welcome your feedback and stories with your own experiences. Check out the section of the guide called &lt;em&gt;Tales from the Trenches&lt;/em&gt; which includes mini-cases studies of other teams implementing the CQRS and ES patterns in the real world.  Some of them validate our findings, others provide different perspectives. Take our project for a spin, explore our findings and those of others, and tell your story! Email us at
 &lt;strong&gt;cqrsjourney&lt;/strong&gt; at &lt;strong&gt;microsoft&lt;/strong&gt; dot &lt;strong&gt;com&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;There&amp;#8217;s still a lot to explore. We would like to encourage the community to improve and extend our implementation of the Contoso Conference Management System. The github code repo remains open and we&amp;#8217;ll continue to review any and all of your pull requests.&lt;/p&gt;
+&lt;p&gt;There&amp;#8217;s still a lot to explore. We would like to encourage the community to improve and extend our implementation of the Contoso Conference Management System. The github &lt;a href=&quot;https://github.com/mspnp/cqrs-journey-code&quot;&gt;code repo&lt;/a&gt; remains open and we&amp;#8217;ll continue to review any and all of your pull requests.&lt;/p&gt;
 
 &lt;p&gt;Once again, your feedback is very important. Based on it, we may or may not decide to embark on the second journey in the future. For now, we remain enthused!&lt;/p&gt;
 </content>
